@@ -126,16 +126,22 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\Hardware\HardwareInfoController.cs" />
+    <Compile Include="Controllers\Hardware\NetworkInfoController.cs" />
+    <Compile Include="Controllers\Hardware\RamInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Hardware\CPU\CPUInfo.cs" />
     <Compile Include="Models\Hardware\HardwareInfo.cs" />
+    <Compile Include="Models\Hardware\IHardwareInfo.cs" />
     <Compile Include="Models\Hardware\Network\NetworkInfo.cs" />
     <Compile Include="Models\Hardware\Network\NetworkInfoFactory.cs" />
     <Compile Include="Models\Hardware\Network\NetworkInfoService.cs" />
+    <Compile Include="Models\Hardware\Ram\RamHelper.cs" />
     <Compile Include="Models\Hardware\Ram\RamInfo.cs" />
+    <Compile Include="Models\Hardware\Ram\RamInfoFactory.cs" />
+    <Compile Include="Models\Hardware\Ram\RamInfoService.cs" />
     <Compile Include="Models\ISystemInfoService.cs" />
     <Compile Include="Models\SystemInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

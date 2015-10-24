@@ -10,7 +10,7 @@ using DashBoard.Models.Hardware;
 
 namespace DashBoard.Models.Hardware
 {
-    public class HardwareInfo
+    public class HardwareInfo : IHardwareInfo
     {
         public NetworkInfo networkInfo { get; set; }
         public RamInfo ramkInfo { get; set; }
@@ -19,6 +19,7 @@ namespace DashBoard.Models.Hardware
         public HardwareInfo(NetworkInfo networkInfo)
         {
             this.networkInfo = networkInfo;
+            
         }
 
         public HardwareInfo()

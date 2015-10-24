@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DashBoard.Models.Hardware.Ram
 {
-    public class RamInfo
+    public class RamInfo : IHardwareInfo
     {
-        public float current;
+        public float available;
         public float max;
     }
 }

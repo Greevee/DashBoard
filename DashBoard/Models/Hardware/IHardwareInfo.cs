@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DashBoard.Models.Hardware.CPU
+namespace DashBoard.Models.Hardware
 {
-    public class CPUInfo:IHardwareInfo
+    public class IHardwareInfo
     {
     }
 }

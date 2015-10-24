@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DashBoard.Models.Hardware.Network
 {
-    public class NetworkInfo
+    public class NetworkInfo : IHardwareInfo
     {
         public float kbitIn { get; set; }
         public float kbitOut { get; set; }

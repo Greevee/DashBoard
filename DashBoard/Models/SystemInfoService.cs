@@ -13,12 +13,13 @@ namespace DashBoard.Models
     class SystemInfoService:ISystemInfoService
     {
         NetworkInfoFactory networkInfoFactory = new NetworkInfoFactory();
+        RamInfoFactory ramInfoFactory = new RamInfoFactory();
 
         public HardwareInfo GetHardwareInfo()
         {
             HardwareInfo hardwareInfo = new HardwareInfo();
             hardwareInfo.networkInfo=networkInfoFactory.GetNetworkInfo();
-
+            hardwareInfo.ramkInfo = ramInfoFactory.GetRamInfo();
             return hardwareInfo;
         }
 
@@ -29,12 +30,12 @@ namespace DashBoard.Models
 
         public NetworkInfo GetNetworkInfo()
         {
-            throw new NotImplementedException();
+            return networkInfoFactory.GetNetworkInfo();
         }
 
         public RamInfo getRamInfo()
         {
-            throw new NotImplementedException();
+            return ramInfoFactory.GetRamInfo();
         }
     }
 }
