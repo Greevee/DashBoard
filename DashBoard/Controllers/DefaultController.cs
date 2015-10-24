@@ -21,7 +21,7 @@ namespace DashBoard.Controllers
         // GET: api/Default
         public HardwareInfo Get()
         {
-            return service.test();
+            return service.GetHardwareInfo();
         }
 
         // GET: api/Default/5

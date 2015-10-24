@@ -130,7 +130,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hardware\CPU\CPUInfo.cs" />
     <Compile Include="Models\Hardware\HardwareInfo.cs" />
+    <Compile Include="Models\Hardware\Network\NetworkInfo.cs" />
+    <Compile Include="Models\Hardware\Network\NetworkInfoFactory.cs" />
+    <Compile Include="Models\Hardware\Network\NetworkInfoService.cs" />
+    <Compile Include="Models\Hardware\Ram\RamInfo.cs" />
     <Compile Include="Models\ISystemInfoService.cs" />
     <Compile Include="Models\SystemInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
