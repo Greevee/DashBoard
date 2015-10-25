@@ -1,0 +1,12 @@
+﻿body {
+    background-image: url("../Images/miku_wallpaper.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed;       
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+#

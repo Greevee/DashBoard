@@ -123,16 +123,13 @@
   <ItemGroup>
     <Content Include="DashBoard.html" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="index.html" />
+    <Content Include="Style\CSS\style.css" />
+    <Content Include="Style\Images\miku_wallpaper.png" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\main.js" />
-    <Content Include="Scripts\r.js" />
-    <Content Include="Scripts\require.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -1,9 +1,11 @@
 ﻿var data;
+var date = new Date();
 
-window.setInterval(getContacts, 1000);
+
+window.setInterval(refreshDate, 1000);
 
 
-function getContacts() {
+function refreshDate() {
 
     jQuery.ajax({
         type: "GET",
@@ -11,7 +13,6 @@ function getContacts() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (incdata, status, jqXHR) {
-            console.log(data)
             data = incdata;
             refresh();
         },
