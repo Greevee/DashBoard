@@ -8,5 +8,6 @@ namespace DashBoard.Models.Hardware.CPU
 {
     public class CPUInfo:IHardwareInfo
     {
+        public Dictionary<string, float> cpuLoadMap = new Dictionary<string, float>();
     }
 }

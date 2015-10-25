@@ -133,6 +133,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Hardware\CPU\CPUInfo.cs" />
+    <Compile Include="Models\Hardware\CPU\CPUInfoFactory.cs" />
+    <Compile Include="Models\Hardware\CPU\CPUInfoService.cs" />
     <Compile Include="Models\Hardware\HardwareInfo.cs" />
     <Compile Include="Models\Hardware\IHardwareInfo.cs" />
     <Compile Include="Models\Hardware\Network\NetworkInfo.cs" />

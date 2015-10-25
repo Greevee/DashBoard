@@ -14,12 +14,14 @@ namespace DashBoard.Models
     {
         NetworkInfoFactory networkInfoFactory = new NetworkInfoFactory();
         RamInfoFactory ramInfoFactory = new RamInfoFactory();
+        CPUInfoFactory cpuInfoFactory = new CPUInfoFactory();
 
         public HardwareInfo GetHardwareInfo()
         {
             HardwareInfo hardwareInfo = new HardwareInfo();
             hardwareInfo.networkInfo=networkInfoFactory.GetNetworkInfo();
             hardwareInfo.ramkInfo = ramInfoFactory.GetRamInfo();
+            hardwareInfo.cpuInfo = cpuInfoFactory.getCPUInfo();
             return hardwareInfo;
         }
 
