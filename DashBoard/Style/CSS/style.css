@@ -12,8 +12,22 @@
 #d_date_container {
     position: absolute;
     left: 60%;
+    top: 55%;
+    background: rgba(54, 25, 25, .5);
+
+
+
+
+}
+
+.d_container{
+
+    border-radius: 25px;
+    border: 2px solid aqua;
+    padding: 20px; 
 }
 
 .d_value {
     color:aqua;
+    font-size: 5em;
 }
