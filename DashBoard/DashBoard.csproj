@@ -127,10 +127,10 @@
     <Content Include="index.html" />
     <Content Include="Scripts\barIndicator\jquery-1.11.2.min.js" />
     <Content Include="Scripts\barIndicator\jquery.easing.1.3.js" />
+    <Content Include="Scripts\util\myUtil.js" />
     <Content Include="Style\CSS\bi-style.css" />
     <Content Include="Scripts\barIndicator\jquery-barIndicator.js" />
     <Content Include="Style\CSS\myStyle.css" />
-    <Content Include="Style\CSS\style.css" />
     <Content Include="Style\Images\miku_wallpaper.png" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

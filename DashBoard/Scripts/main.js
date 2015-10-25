@@ -1,11 +1,13 @@
 ﻿var data;
 
-window.setInterval(refreshDate, 1000);
+$(document).ready(function () {
+    //site has been loaded, starting stuff!
+    window.setInterval(refreshTime, 1000);
+    window.setInterval(getHardwareInfo, 250);
 
-$('#test1').barIndicator();
+});
 
-function refreshDate() {
-
+function getHardwareInfo() {
     jQuery.ajax({
         type: "GET",
         url: "http://" + window.location.host + "/api/hardwareinfo",
@@ -13,40 +15,28 @@ function refreshDate() {
         dataType: "json",
         success: function (incdata, status, jqXHR) {
             data = incdata;
-            refresh();
-            refreshModules();
+            refreshNetwork();
         },
-
         error: function (jqXHR, status) {
-            console.log(jqXHR)
+            //TODOErrorhandling!
         }
     });
 }
 
-function refreshModules() {
-    //array mit modules definieren, kommt noch
-    $("#d_network_in_value").text(data.networkInfo.kbitIn.toFixed(0)+ " kbyte/s")
+function refreshTime() {
+    $("#d_date_time").text(getTimeString());
+    $("#d_date_date").text(getDateString());
+}
+
+function refreshMemory() {
+    var bar_Memory = $("#d_memory_bar").barIndicator();
+    bar_Memory.barIndicator('loadNewData', [newData]);
+}
+
+function refreshNetwork() {
+    $("#d_network_in_value").text(data.networkInfo.kbitIn.toFixed(0) + " kbyte/s")
     $("#d_network_out_value").text(data.networkInfo.kbitOut.toFixed(0) + " kbyte/s")
 }
 
 
-function refresh() {
-    var date = new Date();
-    $("#d_date_time").text(new Date().toLocaleTimeString().replace("/.*(\d{2}:\d{2}:\d{2}).*/", "$1"));
-    
-    var d = new Date();
-    var day = d.getDate();
-    var month = d.getMonth() + 1;
 
-    if (day < 10) {
-        day = "0" + d.getDate();
-    }
-
-    if (month < 10) {
-        month = "0" + eval(d.getMonth() + 1);
-    }
-
-    var date = day + "." + month + "." + (d.getYear()-100);
-
-    $("#d_date_date").text(date);
-}
