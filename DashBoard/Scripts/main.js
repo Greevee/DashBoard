@@ -11,7 +11,6 @@ $(document).ready(function () {
 function setup() {
 
     window.setInterval(refreshTime, 1000);
-
     jQuery.ajax({
         type: "GET",
         url: "http://" + window.location.host + "/api/hardwareinfo",
@@ -19,8 +18,10 @@ function setup() {
         dataType: "json",
         success: function (incdata, status, jqXHR) {
             sessionData.maxMemory = incdata.ramInfo.max.toFixed(0);
-            setupMemory();
+            sessionData.numerOfCores = incdata.cpuInfo.numberCores;
 
+            setupMemory();
+            setupCPU();
             window.setInterval(getHardwareInfo, 2000);
         },
         error: function (jqXHR, status) {
@@ -39,6 +40,7 @@ function getHardwareInfo() {
             data = incdata;
             refreshNetwork();
             refreshMemory();
+            refreshCPU();
         },
         error: function (jqXHR, status) {
             //TODOErrorhandling!
@@ -50,6 +52,25 @@ function refreshTime() {
     $("#d_date_time").text(getTimeString());
     $("#d_date_date").text(getDateString());
 }
+
+function setupCPU() {
+    for (i = 0; i < sessionData.numerOfCores; i++) {
+        var element = $('<span id="d_cpu_bar_' + i + '" class="d_tablelike_row d_bar"></span>');
+        $('#d_cpu_bar_container').append(element);
+    }
+}
+
+function refreshCPU() {
+
+
+    for (i = 0; i < sessionData.numerOfCores; i++) {
+       
+      
+    }
+   
+
+}
+
 
 function setupMemory() {
     //ill need my own class later here, jquery will do for now...
