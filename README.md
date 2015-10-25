@@ -12,7 +12,7 @@ Example:
 http://localhost:59136/api/hardwareinfo
 
 will deliver
-
+```
 {
     "networkInfo": {
         "kbitIn": 0.127643734,
@@ -37,3 +37,4 @@ will deliver
         }
     }
 }
+```
