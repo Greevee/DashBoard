@@ -14,6 +14,7 @@ namespace DashBoard.Models.Hardware.CPU
         {
             CPUInfo cpuInfo = new CPUInfo();
             cpuInfo.cpuLoadMap = cpuInfoService.GetCPULoadMap();
+            cpuInfo.numberCores = cpuInfoService.getNumerOfInstances();
             return cpuInfo;
         }
     }

@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DashBoard.Models.Hardware.CPU
 {
     class CPUInfoService
     {
-
+        private Regex instanceRegex = new Regex(@"\d,\d");
         private PerformanceCounterCategory performanceCountercategory = new PerformanceCounterCategory("Processor Information");
         private PerformanceCounter performanceCounter = new PerformanceCounter("Processor Information", "% Processor Time");
         private string[] instances;
         Dictionary<string, CounterSample> counterSampleMap = new Dictionary<string, CounterSample>();
+
+
+        public int getNumerOfInstances()
+        {
+            int numberOfInstances = 0;
+            foreach (string instanceName in instances)
+            {
+                Match match = instanceRegex.Match(instanceName);
+                if (match.Success)
+                {
+                    numberOfInstances++;
+                }
+            }
+            return numberOfInstances;
+        }
 
         public CPUInfoService()
         {
@@ -21,8 +37,12 @@ namespace DashBoard.Models.Hardware.CPU
 
             foreach (string instanceName in instances)
             {
-                performanceCounter.InstanceName = instanceName;
-                counterSampleMap.Add(instanceName, performanceCounter.NextSample());
+                Match match = instanceRegex.Match(instanceName);
+                if (match.Success || instanceName.StartsWith("_Total"))
+                {
+                    performanceCounter.InstanceName = instanceName;
+                    counterSampleMap.Add(instanceName, performanceCounter.NextSample());
+                }
             }
         }
 
@@ -40,9 +60,13 @@ namespace DashBoard.Models.Hardware.CPU
             Dictionary<string, float> cpuLoadMap = new Dictionary<string, float>();
             foreach (string instanceName in instances)
             {
-                performanceCounter.InstanceName = instanceName;
-                cpuLoadMap.Add(instanceName,  (float)Calculate(counterSampleMap[instanceName], performanceCounter.NextSample()));
-                counterSampleMap[instanceName] = performanceCounter.NextSample();
+                Match match = instanceRegex.Match(instanceName);
+                if (match.Success || instanceName.StartsWith("_Total"))
+                {
+                    performanceCounter.InstanceName = instanceName;
+                    cpuLoadMap.Add(instanceName, (float)Calculate(counterSampleMap[instanceName], performanceCounter.NextSample()));
+                    counterSampleMap[instanceName] = performanceCounter.NextSample();
+                }      
             }
             return cpuLoadMap;
         }
