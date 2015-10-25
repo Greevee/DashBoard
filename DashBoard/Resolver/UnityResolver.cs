@@ -5,6 +5,10 @@ using System.Web.Http.Dependencies;
 
 namespace DashBoard.Resolver
 {
+    /// <summary>
+    /// This resolver allows creating constructors of controllers with parameters!
+    /// Its using the unity framework
+    /// </summary>
     public class UnityResolver : IDependencyResolver
     {
         protected IUnityContainer container;
