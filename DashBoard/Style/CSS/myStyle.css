@@ -14,16 +14,22 @@ html *
    font-family: Calibri !important;
 }
 
-#d_memory_container {
+#d_cpu_container {
     position: absolute;
     left: 4%;
     top: 45%;
 }
 
+#d_memory_container {
+    position: absolute;
+    left: 40%;
+    top: 10%;
+}
+
 #d_date_container {
     position: absolute;
     left: 60%;
-    top: 50%;
+    top: 61%;
 }
 
 #d_network_container {
@@ -46,7 +52,7 @@ html *
 
 .d_value{
     color:aqua;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 .d_time.d_value {
@@ -71,4 +77,9 @@ html *
 }
 .d_right{
     text-align: right;
+}
+
+
+.therm inner-therm vertical{
+    font-size: 2em;
 }

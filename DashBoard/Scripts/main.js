@@ -52,11 +52,20 @@ function refreshTime() {
 }
 
 function setupMemory() {
-
+    //ill need my own class later here, jquery will do for now...
 }
 
 function refreshMemory() {
-   
+
+    var available = (sessionData.maxMemory - data.ramInfo.available).toFixed(0)
+    $('#d_memory_bar').jQMeter({
+        goal: sessionData.maxMemory,
+        raised: available,
+        meterOrientation: 'vertical',
+        width: '150px',
+        height: '400px',
+        animationSpeed: 0,
+    });
 
 }
 
