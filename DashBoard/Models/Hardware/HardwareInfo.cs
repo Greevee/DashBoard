@@ -13,7 +13,7 @@ namespace DashBoard.Models.Hardware
     public class HardwareInfo : IHardwareInfo
     {
         public NetworkInfo networkInfo { get; set; }
-        public RamInfo ramkInfo { get; set; }
+        public RamInfo ramInfo { get; set; }
         public CPUInfo cpuInfo { get; set; }
 
         public HardwareInfo(NetworkInfo networkInfo)

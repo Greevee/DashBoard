@@ -1,11 +1,33 @@
-﻿var data;
+﻿var sessionData = {};
+var data;
+
+var bar_Memory;
 
 $(document).ready(function () {
     //site has been loaded, starting stuff!
-    window.setInterval(refreshTime, 1000);
-    window.setInterval(getHardwareInfo, 250);
-
+    setup();
 });
+
+function setup() {
+
+    window.setInterval(refreshTime, 1000);
+
+    jQuery.ajax({
+        type: "GET",
+        url: "http://" + window.location.host + "/api/hardwareinfo",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (incdata, status, jqXHR) {
+            sessionData.maxMemory = incdata.ramInfo.max.toFixed(0);
+            setupMemory();
+
+            window.setInterval(getHardwareInfo, 2000);
+        },
+        error: function (jqXHR, status) {
+            //TODOErrorhandling!
+        }
+    });
+}
 
 function getHardwareInfo() {
     jQuery.ajax({
@@ -16,6 +38,7 @@ function getHardwareInfo() {
         success: function (incdata, status, jqXHR) {
             data = incdata;
             refreshNetwork();
+            refreshMemory();
         },
         error: function (jqXHR, status) {
             //TODOErrorhandling!
@@ -28,9 +51,13 @@ function refreshTime() {
     $("#d_date_date").text(getDateString());
 }
 
+function setupMemory() {
+
+}
+
 function refreshMemory() {
-    var bar_Memory = $("#d_memory_bar").barIndicator();
-    bar_Memory.barIndicator('loadNewData', [newData]);
+   
+
 }
 
 function refreshNetwork() {

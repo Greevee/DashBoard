@@ -20,7 +20,7 @@ namespace DashBoard.Models
         {
             HardwareInfo hardwareInfo = new HardwareInfo();
             hardwareInfo.networkInfo=networkInfoFactory.GetNetworkInfo();
-            hardwareInfo.ramkInfo = ramInfoFactory.GetRamInfo();
+            hardwareInfo.ramInfo = ramInfoFactory.GetRamInfo();
             hardwareInfo.cpuInfo = cpuInfoFactory.getCPUInfo();
             return hardwareInfo;
         }
