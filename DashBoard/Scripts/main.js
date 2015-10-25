@@ -15,6 +15,7 @@ function refreshDate() {
         success: function (incdata, status, jqXHR) {
             data = incdata;
             refresh();
+            refreshModules();
         },
 
         error: function (jqXHR, status) {
@@ -22,6 +23,13 @@ function refreshDate() {
         }
     });
 }
+
+function refreshModules() {
+    //array mit modules definieren, kommt noch
+    $("#d_network_in_value").text(data.networkInfo.kbitIn.toFixed(2)+ " kbyte/s")
+    $("#d_network_out_value").text(data.networkInfo.kbitOut.toFixed(2) + " kbyte/s")
+}
+
 
 function refresh() {
     var date = new Date();

@@ -12,22 +12,52 @@
 #d_date_container {
     position: absolute;
     left: 60%;
-    top: 55%;
-    background: rgba(54, 25, 25, .5);
+    top: 50%;
+}
 
-
-
-
+#d_network_container {
+    position: absolute;
+    left: 4%;
+    top: 10%;
 }
 
 .d_container{
 
+    background: rgba(54, 25, 25, .5);
     border-radius: 25px;
     border: 2px solid aqua;
     padding: 20px; 
 }
 
-.d_value {
+.d_headline{
+    font-weight: bold
+}
+
+.d_value{
     color:aqua;
+    font-size: 1.5em;
+}
+
+.d_time.d_value {
     font-size: 5em;
+}
+
+.d_date.d_value {
+    font-size: 5em;
+}
+
+
+.d_tablelike {
+  display: table;
+}
+
+.d_tablelike div { 
+  display: table-row;
+}
+
+.d_tablelike div span { 
+  display: table-cell;
+}
+.d_right{
+    text-align: right;
 }
