@@ -9,4 +9,11 @@
     background-size: cover; 
 }
 
-#
+#d_date_container {
+    position: absolute;
+    left: 60%;
+}
+
+.d_value {
+    color:aqua;
+}

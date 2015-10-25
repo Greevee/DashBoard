@@ -1,5 +1,5 @@
 ﻿var data;
-var date = new Date();
+
 
 
 window.setInterval(refreshDate, 1000);
@@ -24,5 +24,22 @@ function refreshDate() {
 }
 
 function refresh() {
-    $("#CPU").text(data.cpuInfo.cpuLoadMap["0,0"])
+    var date = new Date();
+    $("#d_date_time").text(new Date().toLocaleTimeString().replace("/.*(\d{2}:\d{2}:\d{2}).*/", "$1"));
+    
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+
+    if (day < 10) {
+        day = "0" + d.getDate();
+    }
+
+    if (month < 10) {
+        month = "0" + eval(d.getMonth() + 1);
+    }
+
+    var date = day + "." + month + "." + (d.getYear()-100);
+
+    $("#d_date_date").text(date);
 }
