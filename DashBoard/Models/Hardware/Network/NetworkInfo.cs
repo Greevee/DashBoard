@@ -8,6 +8,9 @@ namespace DashBoard.Models.Hardware.Network
 {
     public class NetworkInfo : IHardwareInfo
     {
+
+        //TODO: ping to umcap. , package loss as infos
+
         public float kbitIn { get; set; }
         public float kbitOut { get; set; }
 

@@ -27,7 +27,7 @@ namespace DashBoard.Models
 
         public CPUInfo getCPUInfo()
         {
-            throw new NotImplementedException();
+            return cpuInfoFactory.getCPUInfo();
         }
 
         public NetworkInfo GetNetworkInfo()
