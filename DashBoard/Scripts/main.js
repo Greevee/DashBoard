@@ -1,7 +1,9 @@
 ﻿var sessionData = {};
 var data;
+var memoryBar = {};
+var cpuBars = {};
 
-var bar_Memory;
+
 
 $(document).ready(function () {
     //site has been loaded, starting stuff!
@@ -19,10 +21,9 @@ function setup() {
         success: function (incdata, status, jqXHR) {
             sessionData.maxMemory = incdata.ramInfo.max.toFixed(0);
             sessionData.numerOfCores = incdata.cpuInfo.numberCores;
-
             setupMemory();
             setupCPU();
-            window.setInterval(getHardwareInfo, 2000);
+            window.setInterval(getHardwareInfo, 250);
         },
         error: function (jqXHR, status) {
             //TODOErrorhandling!
@@ -55,38 +56,48 @@ function refreshTime() {
 
 function setupCPU() {
     for (i = 0; i < sessionData.numerOfCores; i++) {
-        var element = $('<span id="d_cpu_bar_' + i + '" class="d_tablelike_row d_bar"></span>');
-        $('#d_cpu_bar_container').append(element);
+        
+        var element = $('<div id="d_cpu_bar_' + i + '" class="d_cpu_bar"></div>');
+        $("#d_cpu_bar_container").append(element)
+
+
+        var options = {};
+        options.max = "100";
+        options.width = "36px";
+        options.height = "200px";
+
+        var cpuBar = new bar(options);
+        cpuBar.appendToEle(element)
+
+        cpuBars[i] = cpuBar
+
     }
 }
 
 function refreshCPU() {
-
-
     for (i = 0; i < sessionData.numerOfCores; i++) {
-       
-      
+        cpuBars[i].updateValue(data.cpuInfo.cpuLoadMap["0,"+i]);
     }
-   
-
+    $("#d_cpu_total_value").text(data.cpuInfo.cpuLoadMap._Total.toFixed(0));
 }
 
 
 function setupMemory() {
-    //ill need my own class later here, jquery will do for now...
+    var options = {};
+    options.max = sessionData.maxMemory;
+    options.width = "140px";
+    options.height = "410px";
+
+    memoryBar = new bar(options);
+    memoryBar.appendToEle($("#d_memory_bar_container"))
+
 }
 
 function refreshMemory() {
-
-    var available = (sessionData.maxMemory - data.ramInfo.available).toFixed(0)
-    $('#d_memory_bar').jQMeter({
-        goal: sessionData.maxMemory,
-        raised: available,
-        meterOrientation: 'vertical',
-        width: '150px',
-        height: '400px',
-        animationSpeed: 0,
-    });
+    var used = (sessionData.maxMemory - data.ramInfo.available).toFixed(0);
+    var usedpercent = (Number(used)) / (Number(sessionData.maxMemory)) * 100
+    memoryBar.updateValue(usedpercent);
+    memoryBar.showValue(used);
 
 }
 

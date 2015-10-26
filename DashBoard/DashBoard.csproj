@@ -125,6 +125,7 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="index.html" />
+    <Content Include="Scripts\bar\barTender.js" />
     <Content Include="Scripts\util\jqmeter.min.js" />
     <Content Include="Scripts\util\myUtil.js" />
     <Content Include="Style\CSS\myStyle.css" />

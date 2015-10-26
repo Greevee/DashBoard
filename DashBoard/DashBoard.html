@@ -5,7 +5,10 @@
 
 
     <script src="scripts/jquery-2.1.4.js"></script>
+
     <script src="Scripts/util/jqmeter.min.js"></script>
+
+    <script src="Scripts/bar/barTender.js"></script>
 
 
     <script src="Scripts/util/myUtil.js"></script>
@@ -38,14 +41,15 @@
         </div>
         <div id="d_memory_container" class="d_container">
             <div id="d_memory_info" class="d_headline d_value">Memory</div>
-            <div id="d_memory_bar" class="d_bar">8000</div>
+            <div id="d_memory_bar_container" class="d_bar"></div>
         </div>
         <div id="d_cpu_container" class="d_container">
             <div id="d_cpu_info" class="d_headline d_value">CPU</div>
-            <div id="d_cpu_bar_container" class="d_bar d_tablelike">
-                
+            <div id="d_cpu_bar_container" class="d_bar_container"></div>
+            <div id="d_cpu_total_container" class="d_tablelike_row">
+                <span id="d_cpu_total_key" class="d_value">Total:</span>
+                <span id="d_cpu_total_value" class="d_value d_right">xxx %</span>
             </div>
-            <div id="d_cpu_total_valuer" class="d_value">xxx %</div>
         </div>
     </div>
 </body>
