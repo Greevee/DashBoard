@@ -3,6 +3,8 @@ var data;
 var memoryBar = {};
 var cpuBars = {};
 
+var refresh_ms = 1000;
+
 
 
 $(document).ready(function () {
@@ -23,7 +25,7 @@ function setup() {
             sessionData.numerOfCores = incdata.cpuInfo.numberCores;
             setupMemory();
             setupCPU();
-            window.setInterval(getHardwareInfo, 250);
+            window.setInterval(getHardwareInfo, refresh_ms);
         },
         error: function (jqXHR, status) {
             //TODOErrorhandling!
@@ -63,8 +65,7 @@ function setupCPU() {
 
         var options = {};
         options.max = "100";
-        options.width = "36px";
-        options.height = "200px";
+        options.height = "100px";
 
         var cpuBar = new bar(options);
         cpuBar.appendToEle(element)

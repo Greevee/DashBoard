@@ -1,7 +1,6 @@
 ﻿function bar(options) {
 
     this.max = parseInt((options.max).replace(/\D/g, ''));
-    this.width = options.width;
     this.height = options.height;
     this.barColor = '#bfd255';
     this.bgColor = '#444';
@@ -13,7 +12,7 @@
         rootele = $('<div class="d_outer_bar"><div class="d_inner_bar"><span class="d_innerbar_value"></span></div></div>');
         elem.append(rootele);
 
-        elem.find('.d_outer_bar').attr('style', 'width:' + this.width + ';height:' + this.height + ';background-color:' + this.bgColor);
+        elem.find('.d_outer_bar').attr('style', 'background-color:' + this.bgColor);
         elem.find('.d_inner_bar').attr('style', 'background-color:' + 'aqua' + ';height:40%;width:100%');
     }
 

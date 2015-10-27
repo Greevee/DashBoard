@@ -14,96 +14,134 @@ html *
    font-family: Calibri !important;
 }
 
+/* Container */
+
+#d_network_container {
+    position: absolute;
+    left: 4%;
+    top: 12%;
+    width: 25%;
+    height: 20%
+}
+
+#d_cpu_container {
+    position: absolute;
+    left: 4%;
+    width: 25%;
+    height: 50%;
+    top: 40%;
+}
+
+#d_memory_container {
+    position: absolute;
+    left: 33%;
+    width: 11%;
+    height: 50%;
+    top: 40%;
+}
+
+#d_date_container {
+    position: absolute;
+    left: 70%;
+    top: 60%;
+    height: 31%;
+    width: 25%;
+}
+
+
+
+
+
 .d_outer_bar{
     position: relative;
     border-radius:18px;
-    margin: 2px;
+    /*margin: 2px;*/
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+    height: 100%;
 }
 
 .d_inner_bar{
    position: absolute;
    bottom: 0px;
    border-radius:15px;
+   	-webkit-transition:  height 1s ease;
+	-moz-transition:  height 1s ease;
+	-o-transition:  height 1s ease;
+	transition: width 1s ease, height 2s ease;
 }
 
 .d_innerbar_value{
     color: rgba(54, 25, 25, 1);
     display: inline-block;
-    font-size: 3em;
+    font-size: 3.5vw;
     font-weight: bold;
     margin-left: 20px;
 }
 
 .d_cpu_bar {
     display: inline-block;
+    width: 12.5%;
+    height: 100%;
 }
 
-#d_cpu_container {
-    position: absolute;
-    left: 4%;
-    top: 45%;
-}
 
-#d_memory_container {
-    position: absolute;
-    left: 40%;
-    top: 10%;
-}
-
-#d_date_container {
-    position: absolute;
-    left: 60%;
-    top: 61%;
-}
-
-#d_network_container {
-    position: absolute;
-    left: 4%;
-    top: 10%;
-}
 
 .d_container{
 
     background: rgba(54, 25, 25, .5);
     border-radius: 15px;
-    border: 2px solid aqua;
+    border: 3px solid aqua;
     padding: 10px; 
 }
 
 .d_headline{
-    font-weight: bold
+    font-size: 3vw;
+    font-weight: bold;
+    color: aqua;
 }
 
 .d_value{
     color:aqua;
-    font-size: 2.5em;
+    font-size: 3vw;
+}
+
+d_value_left{
+       width:25%;
 }
 
 .d_time.d_value {
-    font-size: 5em;
+    font-size: 7vw;
 }
 
 .d_date.d_value {
-    font-size: 5em;
+    font-size: 7vw;
 }
 
 
-.d_tablelike {
-  display: table;
-}
 
-.d_tablelike div { 
-  display: table-row;
-}
-
-.d_tablelike div span { 
-  display: table-cell;
-}
 .d_right{
-    text-align: right;
+    float:right;
 }
 
 
 .therm inner-therm vertical{
     font-size: 2em;
+}
+
+#d_cpu_info{
+    height:15%;
+}
+#d_cpu_bar_container{
+    height:70%;
+}
+#d_cpu_total_container{
+       height:15%;
+}
+#d_memory_info{
+   height:15%;
+}
+#d_memory_bar_container{
+    height:85%;
 }
