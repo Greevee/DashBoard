@@ -16,3 +16,12 @@ function getDateString() {
     }
     return day + "." + month + "." + (d.getYear() - 100);
 }
+
+
+function getNetworkValueFormatted(kbyte_as_number) {
+    if (kbyte_as_number > 1024) {
+        return (kbyte_as_number/1024).toFixed(1)+" MByte/s"
+    } else {
+        return kbyte_as_number.toFixed(0) + " KByte/s"
+    }
+}

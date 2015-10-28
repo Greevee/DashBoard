@@ -79,7 +79,7 @@ function refreshCPU() {
     for (i = 0; i < sessionData.numerOfCores; i++) {
         cpuBars[i].updateValue(data.cpuInfo.cpuLoadMap["0,"+i]);
     }
-    $("#d_cpu_total_value").text(data.cpuInfo.cpuLoadMap._Total.toFixed(0));
+    $("#d_cpu_total_value").text(data.cpuInfo.cpuLoadMap._Total.toFixed(0)+" %");
 }
 
 
@@ -103,8 +103,8 @@ function refreshMemory() {
 }
 
 function refreshNetwork() {
-    $("#d_network_in_value").text(data.networkInfo.kbitIn.toFixed(0) + " kbyte/s")
-    $("#d_network_out_value").text(data.networkInfo.kbitOut.toFixed(0) + " kbyte/s")
+    $("#d_network_in_value").text(getNetworkValueFormatted(data.networkInfo.kbitIn));
+    $("#d_network_out_value").text(getNetworkValueFormatted(data.networkInfo.kbitOut));
 }
 
 
