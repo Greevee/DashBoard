@@ -8,15 +8,14 @@ ALPHA Preview
 This is a Net.ASP webpage which allows monitoring of a local PC. It displays information about the user's PC hardware on a wi-fi-enabled smartphone. A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose.
 
 Planned modules:
-	-Hardware
-	-Teamspeak 3
-	-maybe Steam, nut sure about it yet
+	- Hardware
+	- Teamspeak 3
 	
 If you like it and want to support the project, feel free to give a small donation! : ) <br>
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
 
 
-##Current available APIS
+##Current available APIs
 There are some APIs that can be used independently from the frontend.
 Apis that work for now:
 
@@ -67,14 +66,22 @@ and so on...
 ##Installation
 There is no automatic installer yet, it's on the ToDo List!
 
-- Download Visual Studio -> Load project -> Publish to an existing IIS
+###Requirements
+- Teamspeak 3 Client Query Plugin has to be enabled
 - The application Pool User needs administrator privileges!
-- There must be a firewall entry for the port of the page.
+- There must be a firewall entry for the port of the page
+
+###Installation Process
+
+- Download Visual Studio -> Load project -> Publish to an existing IIS
+- Access the site of your ISS with /DashBoard.html (example: http://localhost:59136/DashBoard.html)
+
+A detailed description will follow later.
 
 ##Progress
-- Backend Hardware: 100%
-- Basic HTML Page: 100%
-- Teamspeak Modul: 20%
+- Backend hardware: 100%
+- Basic HTML page: 100%
+- Teamspeak module: 20%
 
 ##Credits
 

@@ -4,26 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TeamSpeakClientMonitor.objects;
 
 namespace TeamSpeakClientMonitor
 {
     public class TeamSpeakClientMonitor
     {
 
-        enum ClientState
-        {
-            normal,
-            micmuted,
-            soundmuted,
-            away
-        };
-
         private string host = "localhost";
         private int port = 25639;
         TelnetConnection tc;
 
-        string channelD = "";
-        string clientID = "";
+        private TSClient myClient;
+
 
         public TeamSpeakClientMonitor(string host, int port)
         {
@@ -32,44 +25,46 @@ namespace TeamSpeakClientMonitor
 
         }
 
-        public
-
         public TeamSpeakClientMonitor()
         {
         }
 
-        public void connect()
+        public void Connect()
         {
             tc = new TelnetConnection(host, port);
             string response = tc.Read();
-            whoami();
+            Whoami();
         }
 
 
-        private void whoami()
+        private void Whoami()
         {
             String cmd = "whoami";
             tc.WriteLine(cmd);
             string response = tc.Read();
-            if (isError(response))
+            if (IsError(response))
             {
                 throw new TeamSpeakClientMonitorException("Connection failed");
             }
             else
             {
-                clientID = getParamFromString(response, "clid");
-                channelD = getParamFromString(response, "cid");
+                clientID = GetParamFromString(response, "clid");
+                channelD = GetParamFromString(response, "cid");
             }
         }
 
-        public void refreshClient()
+        public void RefreshClient()
         {
-            whoami();
+            Whoami();
+        }
+
+        private string getClientInfo()
+        {
+
         }
 
 
-
-        private string getParamFromString(string response, string parameter)
+        private string GetParamFromString(string response, string parameter)
         {
             Regex regex = new Regex(parameter + @"=([^\s-]*)");
             Match match = regex.Match(response);
@@ -84,7 +79,7 @@ namespace TeamSpeakClientMonitor
             }
         }
 
-        private bool isError(string response)
+        private bool IsError(string response)
         {
             Regex regex = new Regex("msg=ok");
             Match match = regex.Match(response);
