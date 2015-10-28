@@ -1,7 +1,7 @@
 # DashBoard
 
 ALPHA Preview
-![Alt text](Dashboard/alpha.PNG)
+![Alt text](DashBoard/alpha.PNG)
 
 
 ##Introduction
