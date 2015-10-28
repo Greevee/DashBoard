@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace TeamSpeakClientMonitor.objects
 {
-    class TSChannel
+    public class TSChannel
     {
+        private string channelID;
+
+        public TSChannel(string channelID)
+        {
+            this.channelID = channelID;
+        }
+
         public string id { get; set; }
         public string channelName { get; set; }
-        public HashSet<TSClient> clients { get; set; }
+        public Dictionary<string,TSClient> clients { get; set; } 
     }
 }

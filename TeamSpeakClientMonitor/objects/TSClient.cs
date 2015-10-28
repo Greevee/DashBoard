@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TeamSpeakClientMonitor.objects
 {
-    class TSClient
+    public class TSClient
     {
+
         public enum ClientState
         {
             normal,
@@ -19,7 +20,9 @@ namespace TeamSpeakClientMonitor.objects
         public string nickName { get; set; }
         public ClientState state { get; set; }
 
-
-
+        public TSClient(string nickname)
+        {
+            this.nickName = nickname;
+        }
     }
 }
