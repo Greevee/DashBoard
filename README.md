@@ -11,8 +11,9 @@ Planed Moduls:
 	-Teamspeak 3
 	-maybe Steam, nut sure about it yet
 	
-If you like it and wanna support me, feel free to give me little donation :)
+If you like it and wanna support me, feel free to give me little donation! :) <br>
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
+
 
 ##Current available APIS
 There are some APIs that can be used independently from the frontend.
