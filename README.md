@@ -6,12 +6,13 @@ ALPHA Preview
 
 ##Introduction
 This is a Net.ASP webpage which allows monitoring of a local PC. It displays information about the users PC hardware on a wi-fi-enabled smartphone. A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose.
-Planed Moduls:
+
+Planned modules:
 	-Hardware
 	-Teamspeak 3
 	-maybe Steam, nut sure about it yet
 	
-If you like it and wanna support me, feel free to give me little donation! :) <br>
+If you like it and want to support the project, feel free to give a small donation! : )
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
 
 
