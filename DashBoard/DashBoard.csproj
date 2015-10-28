@@ -121,6 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alpha.PNG" />
     <Content Include="DashBoard.html" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
