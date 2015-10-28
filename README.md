@@ -5,8 +5,7 @@ ALPHA Preview
 
 
 ##Introduction
-This is a Net.ASP Webpage which allows Monitoring of a local PC.
-It is for ppl like me, the ones that love watching the hardware while gaming. If combined with a medium-large smartphone and a G910 (Logitech) the experience is awesome : )
+This is a Net.ASP webpage which allows monitoring of a local PC. It is designed to give the user information about their hardware while running fullscreen applications. A G910 (Logitech) combined with a medium or large size smartphone works great for this purpose.
 Planed Moduls:
 	-Hardware
 	-Teamspeak 3
@@ -72,6 +71,10 @@ There is no automatic installer yet, it's on the ToDo List!
 - The application Pool User needs administrator privileges!
 - There must be a firewall entry for the port of the page.
 
+##Progress
+- Backend Hardware: 100%
+- Basic HTML Page: 100%
+- Teamspeak Modul: 20%
 
 ##Credits
 
