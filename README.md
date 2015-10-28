@@ -5,14 +5,17 @@ ALPHA Preview
 
 
 ##Introduction
-This is a Net.ASP webpage which allows monitoring of a local PC. It is designed to give the user information about their hardware while running fullscreen applications. A G910 (Logitech) combined with a medium or large size smartphone works great for this purpose.
+This is a Net.ASP webpage which allows monitoring of a local PC. It displays information about the users PC hardware on a wi-fi-enabled smartphone. A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose.
 Planed Moduls:
 	-Hardware
 	-Teamspeak 3
 	-maybe Steam, nut sure about it yet
+	
+If you like it and wanna support me, feel free to give me little donation :)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
 
 ##Current available APIS
-There are some APIs that can be used indipendantly from the frontend.
+There are some APIs that can be used independently from the frontend.
 Apis that work for now:
 
 - api/hardwareinfo/
@@ -59,15 +62,10 @@ will deliver
 ```
 and so on...
 
-##In process
-Apis in development:
-- api/teamspeak
-
-
 ##Installation
 There is no automatic installer yet, it's on the ToDo List!
 
-- Download Visual Studio -> Load Programm -> Publish to an existing IIS
+- Download Visual Studio -> Load project -> Publish to an existing IIS
 - The application Pool User needs administrator privileges!
 - There must be a firewall entry for the port of the page.
 

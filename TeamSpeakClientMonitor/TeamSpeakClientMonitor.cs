@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace TeamSpeakClientMonitor
 {
     public class TeamSpeakClientMonitor
-   {
+    {
 
         enum ClientState
         {
             normal,
             micmuted,
             soundmuted,
-            away    
+            away
         };
 
         private string host = "localhost";
@@ -32,48 +32,53 @@ namespace TeamSpeakClientMonitor
 
         }
 
+        public
+
         public TeamSpeakClientMonitor()
         {
         }
 
         public void connect()
         {
-
             tc = new TelnetConnection(host, port);
             string response = tc.Read();
+            whoami();
+        }
 
+
+        private void whoami()
+        {
             String cmd = "whoami";
             tc.WriteLine(cmd);
-            response = tc.Read();
+            string response = tc.Read();
             if (isError(response))
             {
                 throw new TeamSpeakClientMonitorException("Connection failed");
             }
             else
             {
-                clientID= getParamFromString(response, "clid");
+                clientID = getParamFromString(response, "clid");
                 channelD = getParamFromString(response, "cid");
             }
-
-            Console.WriteLine(channelD);
-            Console.WriteLine(clientID);
-
         }
 
-        private void whoiam()
+        public void refreshClient()
         {
-            throw new NotImplementedException();
+            whoami();
         }
 
-        public string getParamFromString(string response,string parameter)
+
+
+        private string getParamFromString(string response, string parameter)
         {
-            Regex regex = new Regex(parameter+ @"=([^\s-]*)");
+            Regex regex = new Regex(parameter + @"=([^\s-]*)");
             Match match = regex.Match(response);
             if (match.Success)
             {
                 return match.Groups[1].Value;
 
-            }else
+            }
+            else
             {
                 return "";
             }
