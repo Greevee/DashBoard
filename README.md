@@ -6,14 +6,14 @@ ALPHA Preview
 
 ##Introduction
 This is a Net.ASP Webpage which allows Monitoring of a local PC.
-It is for ppl like me, the ones that love watching the hardwhile gaming. If combined with a medium-large smartphone and a G910 (Logitech) the experience is awesome : )
-Included moduls will be:
+It is for ppl like me, the ones that love watching the hardware while gaming. If combined with a medium-large smartphone and a G910 (Logitech) the experience is awesome : )
+Planed Moduls:
 	-Hardware
 	-Teamspeak 3
 	-maybe Steam, nut sure about it yet
 
 ##Current available APIS
-There are some APIs that can be used indipendant from the frontend.
+There are some APIs that can be used indipendantly from the frontend.
 Apis that work for now:
 
 - api/hardwareinfo/
@@ -60,7 +60,7 @@ will deliver
 ```
 and so on...
 
-##In Process
+##In process
 Apis in development:
 - api/teamspeak
 
@@ -69,10 +69,10 @@ Apis in development:
 There is no automatic installer yet, it's on the ToDo List!
 
 - Download Visual Studio -> Load Programm -> Publish to an existing IIS
-- The application Pool User needs Administrator rights!
-- There must be an firewall entry for the port of the page.
+- The application Pool User needs administrator privileges!
+- There must be a firewall entry for the port of the page.
 
 
 ##Credits
 
-Special thanks to wulf, sebbi, bayne for helping me getting shit done.
+Special thanks to wulf, sebbi and bayne for helping me getting shit done.
