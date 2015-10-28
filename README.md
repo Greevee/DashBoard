@@ -75,4 +75,5 @@ There is no automatic installer yet, it's on the ToDo List!
 
 ##Credits
 
-Special thanks to wulf, sebbi and bayne for helping me getting shit done.
+Special thanks to Wulf, Sebbi, Bayne and Denyo for helping me getting shit done!!!
+(and Logitech for this awesome Keyboard, that inspired me!)

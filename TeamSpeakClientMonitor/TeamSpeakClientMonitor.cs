@@ -8,7 +8,15 @@ using System.Threading.Tasks;
 namespace TeamSpeakClientMonitor
 {
     public class TeamSpeakClientMonitor
-    {
+   {
+
+        enum ClientState
+        {
+            normal,
+            micmuted,
+            soundmuted,
+            away    
+        };
 
         private string host = "localhost";
         private int port = 25639;
@@ -84,5 +92,7 @@ namespace TeamSpeakClientMonitor
                 return true;
             }
         }
+
+
     }
 }
