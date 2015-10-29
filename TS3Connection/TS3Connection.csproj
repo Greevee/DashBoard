@@ -43,9 +43,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="messages\Notification.cs" />
+    <Compile Include="objects\Channel.cs" />
+    <Compile Include="objects\Client.cs" />
     <Compile Include="objects\State.cs" />
     <Compile Include="TSConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

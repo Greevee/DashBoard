@@ -17,13 +17,42 @@ namespace TS3Connection.objects
 
     public class Client
     {
-        string id { get; set; }
-        string nickname { get; set; }
-        clientState state { get; set; }
+        public string id { get; set; }
+        public string nickname { get; set; }
+        public clientState state { get; set; }
+        public bool isTalking { get; set; }
+
+        public string client_input_muted { get; set; }
+        public string client_output_muted { get; set; }
+        public string client_away { get; set; }
+
 
         public Client(string id)
         {
             this.id = id;
+            this.isTalking = false;
+            this.client_input_muted = "0";
+            this.client_output_muted = "0";
+            this.client_away = "0";
+            }
+
+        public void CalcStatus()
+        {
+            if (this.client_away == "1")
+            {
+                this.state = clientState.away;
+                return;
+            }
+            if (this.client_output_muted == "1")
+            {
+                this.state = clientState.speaker_muted;
+                return;
+            }
+            if (this.client_input_muted == "1")
+            {
+                this.state = clientState.mic_muted;
+                return;
+            }
         }
 
     }
