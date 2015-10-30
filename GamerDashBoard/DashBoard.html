@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Style/CSS/myStyle.css" />
+
+
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/bar/barTender.js"></script>
+    <script src="Scripts/util/myUtil.js"></script>
+    <script src="Scripts/main.js"></script>
+
+
+    <title>DashBoard</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="d_mainframe">
+        <div id="d_date_container" class="d_container">
+            <div id="d_date_time" class="d_time d_value">
+                    hh:mm:ss
+            </div>
+            <div id="d_date_date" class="d_date d_value">
+                    dd.mm.yy
+            </div>
+        </div>
+        <div id="d_network_container" class="d_container d_tablelike">
+            <div id="d_network_info" class="d_headline"">Network</div>
+            <div id="d_network_in" class="d_tablelike_row">
+                <span id="d_network_in_key" class="d_value d_value_left">In</span>
+                <span id="d_network_in_value" class="d_value d_right">x.xxx kbs</span>
+            </div>
+            <div id="d_network_out" class="d_tablelike_row">
+                <span id="d_network_out_key" class="d_value d_value_left">Out</span>
+                <span id="d_network_out_value" class="d_value d_right">x.xxx kbs</span>
+            </div>
+        </div>
+        <div id="d_memory_container" class="d_container">
+            <div id="d_memory_info" class="d_headline">Memory</div>
+            <div id="d_memory_bar_container" class="d_bar"></div>
+        </div>
+        <div id="d_cpu_container" class="d_container">
+            <div id="d_cpu_info" class="d_headline">CPU</div>
+            <div id="d_cpu_bar_container" class="d_bar_container"></div>
+            <div id="d_cpu_total_container" class="d_tablelike_row">
+                <span id="d_cpu_total_key" class="d_value">Total:</span>
+                <span id="d_cpu_total_value" class="d_value d_right">xxx %</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
