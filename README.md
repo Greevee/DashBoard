@@ -111,16 +111,24 @@ A detailed description will follow later.
 ##Progress
 
 ###Done
-* Backend hardware: 100%
-* Basic HTML page: 100%
+* Apis: 
+  * CPU 100%
+  * Memory 100%
+  * Network 90%
+  * Teamspeak 100*
+* Frontend
+  * CPU 100%
+  * Memory 100%
+  * Network 100%
+  * Teamspeak 30*
 
 ###In progress
 * Teamspeak module: 40%
 * Settings Screen 0%
   * Change Wallpaper 0%
-  * Change Color Schema 0*
-  * Change TS3 Display Settings*
-* Standalone Installer 10*
+  * Change Color Schema 0%
+  * Change TS3 Display Settings%
+* Standalone Installer 10%
 
 ##Credits
 
