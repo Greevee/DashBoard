@@ -1,7 +1,7 @@
 # DashBoard
 
 ALPHA Preview
-![Alt text](DashBoard/alpha.PNG)
+![Alt text](GamerDashBoard/alpha_preview.png)
 
 
 ##Introduction
@@ -123,11 +123,10 @@ A detailed description will follow later.
   * Teamspeak 30*
 
 ###In progress
-* Teamspeak module: 40%
 * Settings Screen 0%
   * Change Wallpaper 0%
   * Change Color Schema 0%
-  * Change TS3 Display Settings%
+  * Change TS3 Display Settings 0%
 * Standalone Installer 10%
 
 ##Credits
