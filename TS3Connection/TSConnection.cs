@@ -207,6 +207,27 @@ namespace TS3Connection
 
                         }
                     }
+                    else
+                    {
+                        client = getClientInfo(Utils.GetParamFromString(e.Value, "clid"));
+
+                       
+                        Command cmd = new Command("channelclientlist cid=" + myChannel.id);
+                        string cmdResponse = QueryRunner.SendCommand(cmd);
+                        string[] users = cmdResponse.Split('|');
+                        foreach (string user in users)
+                        {
+                            if(client.id==Utils.GetParamFromString(user, "clid"))
+                            {
+                                if (!myChannel.clients.ContainsKey(client.id))
+                                {
+                                    myChannel.clients.Add(client.id, client);
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case Notification.NotificationType.clientchannelgroupchanged:
                     break;
             }
 

@@ -14,6 +14,7 @@ namespace TS3Connection.messages
             clientmoved,
             talkstatuschange,
             channeledited,
+            clientchannelgroupchanged,
             unknown
         }
 
@@ -41,6 +42,9 @@ namespace TS3Connection.messages
             if (response.StartsWith("notifyclientmoved"))
             {
                 return NotificationType.clientmoved;
+            }
+            if(response.StartsWith("notifyclientchannelgroupchanged")){
+                return NotificationType.clientchannelgroupchanged;
             }
             return NotificationType.talkstatuschange;
         }
