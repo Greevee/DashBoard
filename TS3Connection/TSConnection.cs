@@ -104,6 +104,9 @@ namespace TS3Connection
 
             }
 
+            cmd = new Command("channelvariable cid="+id+" channel_name");
+            cmdResponse = QueryRunner.SendCommand(cmd);
+            channel.name= Utils.GetParamFromString(cmdResponse, "channel_name");
             return channel;
         }
 
@@ -256,7 +259,7 @@ namespace TS3Connection
 
         private void Notifications_ChannelTalkStatusChanged(object sender, TalkStatusEventArgsBase e)
         {
-            Console.WriteLine(e.GetDumpString());
+            //dont need it, i guess
         }
 
     }

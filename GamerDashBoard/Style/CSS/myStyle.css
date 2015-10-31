@@ -12,6 +12,8 @@
 html *
 {
    font-family: Calibri !important;
+
+
 }
 
 /* Container */
@@ -20,22 +22,22 @@ html *
     position: absolute;
     left: 4%;
     top: 12%;
-    width: 25%;
+    width: 23%;
     height: 20%
 }
 
 #d_cpu_container {
     position: absolute;
     left: 4%;
-    width: 25%;
+    width: 23%;
     height: 50%;
     top: 40%;
 }
 
 #d_memory_container {
     position: absolute;
-    left: 33%;
-    width: 11%;
+    left: 30.5%;
+    width: 10.5%;
     height: 50%;
     top: 40%;
 }
@@ -44,13 +46,38 @@ html *
     position: absolute;
     left: 70%;
     top: 60%;
-    height: 31%;
-    width: 25%;
+    height: 30%;
+    width: 26%;
+}
+
+#d_teamspeak_container {
+    position: absolute;
+    left: 44.5%;
+    width: 20%;
+    height: 50%;
+    top: 40%;
 }
 
 
+/* teamspeak styling*/
+.d_teamspeak_user_container{
+   
+}
 
+.d_teamspeak_user_entry{
+     display: block;
+}
+#d_teamspeak_my_user_name{
+     font-weight: bold;
+}
+.d_teamspeak_user_status_icon{
+    width: 18%;
+}
 
+.d_teamspeak_user_status_icon_normal{
+  fill: #94d31b;
+    background-image: url("../icons/normal.svg");
+}
 
 .d_outer_bar{
     position: relative;
@@ -81,7 +108,6 @@ html *
 
 .d_cpu_bar {
     display: inline-block;
-   /* width: 12.5%;*/
     height: 100%;
 }
 
@@ -99,14 +125,16 @@ html *
     font-size: 3vw;
     font-weight: bold;
     color: aqua;
+
+
 }
 
 .d_value{
-    color:aqua;
+    color: aqua;
     font-size: 3vw;
 }
 
-d_value_left{
+d_network_value_direction{
        width:25%;
 }
 
@@ -122,6 +150,9 @@ d_value_left{
 
 .d_right{
     float:right;
+}
+.d_left{
+    float:left;
 }
 
 
@@ -141,6 +172,6 @@ d_value_left{
 #d_memory_info{
    height:15%;
 }
-#d_memory_bar_container{
-    height:85%;
+#d_memory_bar_container {
+    height: 85%;
 }

@@ -22,9 +22,10 @@ Apis that work for now:
 - api/hardwareinfo/
 - api/raminfo/
 - api/networkinfo/
+- api/cpuinfo
 
 ###Example:
-http://localhost:59136/api/hardwareinfo
+http://localhost:13337/api/hardwareinfo
 
 will deliver
 ```
@@ -53,7 +54,7 @@ will deliver
     }
 }
 ```
-http://localhost:59136/api/raminfo/
+http://localhost:13337/api/raminfo/
 will deliver
 ```
 {
@@ -61,7 +62,37 @@ will deliver
     "max": 16321.375
 }
 ```
-and so on...
+
+http://localhost:13337/api/teamspeakinfo
+will deliver
+```
+{
+    "myChannel": {
+        "clients": {
+            "5": {
+                "id": "5",
+                "nickname": "Stradivari",
+                "state": 0,
+                "isTalking": false,
+                "client_input_muted": "0",
+                "client_output_muted": "0",
+                "client_away": "0"
+            }
+        },
+        "id": "84",
+        "name": "Wirtschaft"
+    },
+    "myClient": {
+        "id": "2",
+        "nickname": "Greeve",
+        "state": 0,
+        "isTalking": false,
+        "client_input_muted": "0",
+        "client_output_muted": "0",
+        "client_away": "0"
+    }
+}
+```
 
 ##Installation
 There is no automatic installer yet, it's on the ToDo List!

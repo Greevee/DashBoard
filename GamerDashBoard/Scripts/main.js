@@ -1,9 +1,12 @@
 ﻿var sessionData = {};
-var data;
+var hardware_data = [];
+var teamspeak_data = {};
 var memoryBar = {};
 var cpuBars = {};
 
-var refresh_ms = 1000;
+var refresh_ms_hardware = 1000;
+var refresh_ms_date = 1000;
+var refresh_ms_teamspeak = 200;
 
 
 
@@ -14,7 +17,9 @@ $(document).ready(function () {
 
 function setup() {
 
-    window.setInterval(refreshTime, 1000);
+    window.setInterval(refreshDate, refresh_ms_date);
+
+    //hardware
     jQuery.ajax({
         type: "GET",
         url: "http://" + window.location.host + "/api/hardwareinfo",
@@ -25,7 +30,27 @@ function setup() {
             sessionData.numerOfCores = incdata.cpuInfo.numberCores;
             setupMemory();
             setupCPU();
-            window.setInterval(getHardwareInfo, refresh_ms);
+            window.setInterval(getHardwareInfo, refresh_ms_hardware);
+        },
+        error: function (jqXHR, status) {
+            //TODOErrorhandling!
+        }
+    });
+
+    window.setInterval(getTeamSpeakInfo, refresh_ms_teamspeak);
+    //
+    
+}
+
+function getTeamSpeakInfo() {
+    jQuery.ajax({
+        type: "GET",
+        url: "http://" + window.location.host + "/api/teamspeakinfo",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (ts3data, status, jqXHR) {
+            teamspeak_data = ts3data;
+            refreshTeamSpeak();
         },
         error: function (jqXHR, status) {
             //TODOErrorhandling!
@@ -40,7 +65,7 @@ function getHardwareInfo() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (incdata, status, jqXHR) {
-            data = incdata;
+            hardware_data = incdata;
             refreshNetwork();
             refreshMemory();
             refreshCPU();
@@ -51,7 +76,15 @@ function getHardwareInfo() {
     });
 }
 
-function refreshTime() {
+
+function refreshTeamSpeak() {
+    $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
+    $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
+    $("#d_teamspeak_user_status_icon").addClass("d_teamspeak_user_status_icon_normal");
+
+}
+
+function refreshDate() {
     $("#d_date_time").text(getTimeString());
     $("#d_date_date").text(getDateString());
 }
@@ -82,9 +115,9 @@ function setupCPU() {
 
 function refreshCPU() {
     for (i = 0; i < sessionData.numerOfCores; i++) {
-        cpuBars[i].updateValue(data.cpuInfo.cpuLoadMap["0,"+i]);
+        cpuBars[i].updateValue(hardware_data.cpuInfo.cpuLoadMap["0," + i]);
     }
-    $("#d_cpu_total_value").text(data.cpuInfo.cpuLoadMap._Total.toFixed(0)+" %");
+    $("#d_cpu_total_value").text(hardware_data.cpuInfo.cpuLoadMap._Total.toFixed(0) + " %");
 }
 
 
@@ -100,7 +133,7 @@ function setupMemory() {
 }
 
 function refreshMemory() {
-    var used = (sessionData.maxMemory - data.ramInfo.available).toFixed(0);
+    var used = (sessionData.maxMemory - hardware_data.ramInfo.available).toFixed(0);
     var usedpercent = (Number(used)) / (Number(sessionData.maxMemory)) * 100
     memoryBar.updateValue(usedpercent);
     memoryBar.showValue(used);
@@ -108,8 +141,8 @@ function refreshMemory() {
 }
 
 function refreshNetwork() {
-    $("#d_network_in_value").text(getNetworkValueFormatted(data.networkInfo.kbitIn));
-    $("#d_network_out_value").text(getNetworkValueFormatted(data.networkInfo.kbitOut));
+    $("#d_network_in_value").text(getNetworkValueFormatted(hardware_data.networkInfo.kbitIn));
+    $("#d_network_out_value").text(getNetworkValueFormatted(hardware_data.networkInfo.kbitOut));
 }
 
 
