@@ -142,6 +142,7 @@
     </Content>
     <Content Include="Style\Icons\normal.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Style\Icons\speaker_muted.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

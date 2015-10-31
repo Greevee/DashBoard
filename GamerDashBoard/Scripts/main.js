@@ -6,7 +6,7 @@ var cpuBars = {};
 
 var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
-var refresh_ms_teamspeak = 500;
+var refresh_ms_teamspeak = 100;
 
 
 
@@ -80,7 +80,12 @@ function getHardwareInfo() {
 function refreshTeamSpeak() {
     $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
     $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
-    $("#d_teamspeak_user_status_icon").addClass("d_teamspeak_user_status_icon_normal");
+
+    if (teamspeak_data.myClient.isTalking === true) {
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "aqua");
+    } else {
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "");
+    }
 
 }
 

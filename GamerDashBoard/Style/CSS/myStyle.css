@@ -70,20 +70,29 @@ html *
 #d_teamspeak_my_user_name{
      font-weight: bold;
 }
-.d_teamspeak_user_status_icon{
+.d_teamspeak_my_user_icon{
     width: 20%;
 }
 
-.d_teamspeak_user_status_icon_normal{
 
-
-  fill: aqua;
-  width: 200px;
-  height: 200px;
-  stroke: aqua;
-  background-size: cover;
-  background: url("../Icons/normal.svg") no-repeat center center fixed;
+.d_teamspeak_icon_container{
+    display: block;
+    width: 20%;
+    height: 20%;
 }
+
+.d_teamspeak_icon{
+    height:100%; 
+    width:100%;
+}
+
+.d_teamspeak_icon_normal{
+    stroke: aqua; 
+    stroke-width: 4%;
+}
+
+
+
 
 .d_outer_bar{
     position: relative;
