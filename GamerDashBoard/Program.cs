@@ -51,11 +51,14 @@ namespace PlayGround2
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            StartOptions urls = new StartOptions();
+
+            urls.Urls.Add("http://*:13337");
 
 
-            //WebApp.Start(urlApi, builder => builder.UseWebApi(config));
-            WebApp.Start(url, builder => builder.UseFileServer(options).UseWebApi(config));
-            Console.WriteLine("Listening at " + url);
+            
+            WebApp.Start(urls, builder => builder.UseFileServer(options).UseWebApi(config));
+
             Console.ReadLine();
 
 

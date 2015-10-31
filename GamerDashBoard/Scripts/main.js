@@ -4,9 +4,9 @@ var teamspeak_data = {};
 var memoryBar = {};
 var cpuBars = {};
 
-var refresh_ms_hardware = 1000;
+var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
-var refresh_ms_teamspeak = 200;
+var refresh_ms_teamspeak = 500;
 
 
 

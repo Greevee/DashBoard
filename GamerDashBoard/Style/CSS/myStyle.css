@@ -71,12 +71,18 @@ html *
      font-weight: bold;
 }
 .d_teamspeak_user_status_icon{
-    width: 18%;
+    width: 20%;
 }
 
 .d_teamspeak_user_status_icon_normal{
-  fill: #94d31b;
-    background-image: url("../icons/normal.svg");
+
+
+  fill: aqua;
+  width: 200px;
+  height: 200px;
+  stroke: aqua;
+  background-size: cover;
+  background: url("../Icons/normal.svg") no-repeat center center fixed;
 }
 
 .d_outer_bar{
