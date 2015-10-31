@@ -113,7 +113,7 @@ A detailed description will follow later.
 ###Done
 * Backend hardware: 100%
 * Basic HTML page: 100%
-<br>
+
 ###In progress
 * Teamspeak module: 40%
 * Settings Screen 0%
