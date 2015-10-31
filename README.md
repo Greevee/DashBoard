@@ -98,21 +98,29 @@ will deliver
 There is no automatic installer yet, it's on the ToDo List!
 
 ###Requirements
-- Teamspeak 3 Client Query Plugin has to be enabled
-- The application Pool User needs administrator privileges!
-- There must be a firewall entry for the port of the page
+- .Net Framework 4.5
+- Administrator previleges
 
 ###Installation Process
 
-- Download Visual Studio -> Load project -> Publish to an existing IIS
-- Access the site of your ISS with /DashBoard.html (example: http://localhost:59136/DashBoard.html)
+- Run Visual Studio as Admin -> Load project -> Run GamerDashBoard
+- Access http://localhost:1337/DashBoard.html
 
 A detailed description will follow later.
 
 ##Progress
-- Backend hardware: 100%
-- Basic HTML page: 100%
-- Teamspeak module: 20%
+
+###Done
+* Backend hardware: 100%
+* Basic HTML page: 100%
+<br>
+###In progress
+* Teamspeak module: 40%
+* Settings Screen 0%
+  * Change Wallpaper 0%
+  * Change Color Schema 0*
+  * Change TS3 Display Settings*
+* Standalone Installer 10*
 
 ##Credits
 
