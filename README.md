@@ -116,5 +116,12 @@ A detailed description will follow later.
 
 ##Credits
 
-Special thanks to Wulf, Sebbi, Bayne and Denyo for helping me getting shit done!!!
+Special thanks to:
+- Nikola  Sivkov
+- Bayne
+- Wulf 
+- Sebbi 
+- Denyo 
+- UmCaP Crew
+for helping me getting shit done!!!
 (and Logitech for this awesome Keyboard, that inspired me!)
