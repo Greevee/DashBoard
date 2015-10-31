@@ -57,6 +57,7 @@ function refreshTime() {
 }
 
 function setupCPU() {
+
     for (i = 0; i < sessionData.numerOfCores; i++) {
         
         var element = $('<div id="d_cpu_bar_' + i + '" class="d_cpu_bar"></div>');
@@ -73,6 +74,10 @@ function setupCPU() {
         cpuBars[i] = cpuBar
 
     }
+    var barwidthPercent = 100 / (sessionData.numerOfCores);
+    $('.d_cpu_bar').width(barwidthPercent + "%")
+
+
 }
 
 function refreshCPU() {

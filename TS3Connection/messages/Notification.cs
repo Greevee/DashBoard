@@ -13,6 +13,7 @@ namespace TS3Connection.messages
             clientupdated,
             clientmoved,
             talkstatuschange,
+            channeledited,
             unknown
         }
 
@@ -23,12 +24,30 @@ namespace TS3Connection.messages
             client_away
         }
 
+        public enum ChannelEdited
+        {
+            reasonid
+        }
+
         public static NotificationType GetNotificationType(string response)
         {
             if (response.StartsWith("notifyclientupdated")){
                 return NotificationType.clientupdated;
             }
-            return NotificationType.unknown;
+            if (response.StartsWith("notifytalkstatuschange"))
+            {
+                return NotificationType.talkstatuschange;
+            }
+            if (response.StartsWith("notifyclientmoved"))
+            {
+                return NotificationType.clientmoved;
+            }
+            return NotificationType.talkstatuschange;
+        }
+
+        public enum TalkStatusChanceType
+        {
+            status
         }
     }
 }

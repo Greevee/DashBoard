@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS3Connection", "TS3Connection\TS3Connection.csproj", "{23530C46-9D06-4348-993A-447789A40377}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerDashBoard", "GamerDashBoard\GamerDashBoard.csproj", "{55D85EBB-2816-4F49-81D5-6A4A48394552}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{23530C46-9D06-4348-993A-447789A40377}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23530C46-9D06-4348-993A-447789A40377}.Release|x86.ActiveCfg = Release|Any CPU
 		{23530C46-9D06-4348-993A-447789A40377}.Release|x86.Build.0 = Release|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Debug|x86.Build.0 = Debug|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Release|x86.ActiveCfg = Release|Any CPU
+		{55D85EBB-2816-4F49-81D5-6A4A48394552}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

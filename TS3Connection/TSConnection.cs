@@ -73,7 +73,7 @@ namespace TS3Connection
             QueryRunner.RegisterForNotifications(ClientNotifyRegisterEvent.Any);
             this.state = State.Connected;
             setupClientAndChannel();
-
+            state = State.Connected;
 
         }
 
@@ -82,8 +82,29 @@ namespace TS3Connection
 
             WhoAmIResponse whoAmIResponse = QueryRunner.SendWhoAmI();
             myClient = getClientInfo(whoAmIResponse.ClientId.ToString());
+            myChannel = getChannelInfo(whoAmIResponse.ChannelId.ToString());
+           
+        }
 
-            myChannel = new Channel(whoAmIResponse.ChannelId.ToString());
+        private Channel getChannelInfo(string id)
+        {
+            Channel channel = new Channel(id);
+            Command cmd = new Command("channelclientlist cid=" + id);
+            string cmdResponse = QueryRunner.SendCommand(cmd);
+            channel.clients = new Dictionary<string, Client>();
+
+            string[] users = cmdResponse.Split('|');
+            foreach (string user in users)
+            {
+                string clientId = Utils.GetParamFromString(user, "clid");
+                if (getClient(clientId)==null || getClient(clientId).id != myClient.id)
+                {
+                    channel.clients.Add(clientId, getClientInfo(clientId));
+                }
+
+            }
+
+            return channel;
         }
 
         private Client getClientInfo(string id)
@@ -132,12 +153,14 @@ namespace TS3Connection
         {
             Console.WriteLine("Connection to server closed/lost.");
             DisconnectFromClient();
+            state = State.Disconnected;
         }
 
         private void QueryDispatcher_BanDetected(object sender, EventArgs<SimpleResponse> e)
         {
             Console.WriteLine(string.Format("You're account was banned!\nError-Message: {0}\nBan-Message:{1}", e.Value.ErrorMessage, e.Value.BanExtraMessage));
             DisconnectFromClient();
+            state = State.Disconnected;
         }
 
         private void QueryDispatcher_SocketError(object sender, SocketErrorEventArgs e)
@@ -146,17 +169,43 @@ namespace TS3Connection
                 return;
             Console.WriteLine("Socket error!! Error Code: " + e.SocketError);
             DisconnectFromClient();
+            state = State.Disconnected;
         }
 
         private void QueryDispatcher_NotificationReceived(object sender, EventArgs<string> e)
         {
+            Client client;
+
             switch (Notification.GetNotificationType(e.Value))
             {
                 case Notification.NotificationType.clientupdated:
-                    Client client = getClient(Utils.GetParamFromString(e.Value, "clid"));
+                    client = getClient(Utils.GetParamFromString(e.Value, "clid"));
                     if (client != null)
                     {
                         Utils.updateClient(client, e.Value);
+                    }
+                    break;
+                case Notification.NotificationType.talkstatuschange:
+                    client = getClient(Utils.GetParamFromString(e.Value, "clid"));
+                    if (client != null)
+                    {
+                        Utils.ChanceTalkStatus(client, e.Value);
+                    }
+                    break;
+                case Notification.NotificationType.clientmoved:
+                    client = getClient(Utils.GetParamFromString(e.Value, "clid"));
+                    if (client != null)
+                    {
+                        if (client.id == myClient.id)
+                        {
+                            setupClientAndChannel();
+                        }
+                        else
+                        {
+                            //TODO i cant think
+                            setupClientAndChannel();
+
+                        }
                     }
                     break;
             }

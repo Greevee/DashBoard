@@ -55,7 +55,6 @@ html *
 .d_outer_bar{
     position: relative;
     border-radius:18px;
-    /*margin: 2px;*/
     margin-left: 3%;
     margin-right: 3%;
     width: 94%;
@@ -82,7 +81,7 @@ html *
 
 .d_cpu_bar {
     display: inline-block;
-    width: 12.5%;
+   /* width: 12.5%;*/
     height: 100%;
 }
 

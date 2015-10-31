@@ -29,12 +29,47 @@ namespace TS3Connection.util
         public static void updateClient(Client client, string updateMessage)
         {
             foreach(Notification.ClientUpdateType updateType in Enum.GetValues(typeof(Notification.ClientUpdateType)))
-            if (updateMessage.Contains(updateType.ToString()))
             {
-                client.client_input_muted= GetParamFromString(updateMessage, updateType.ToString());
+                if (updateMessage.Contains(updateType.ToString()))
+                {
+                    switch(updateType)
+                    {
+                        case Notification.ClientUpdateType.client_input_muted:
+                            client.client_input_muted = GetParamFromString(updateMessage, updateType.ToString());
+                            break;
+                        case Notification.ClientUpdateType.client_output_muted:
+                            client.client_output_muted = GetParamFromString(updateMessage, updateType.ToString());
+                            break;
+                        case Notification.ClientUpdateType.client_away:
+                            client.client_away = GetParamFromString(updateMessage, updateType.ToString());
+                            break;
+                    }
+                    
                     client.CalcStatus();
                     break;
+                }
             }
+            
+        }
+
+        public static void ChanceTalkStatus(Client client, string updateMessage)
+        {
+            foreach (Notification.TalkStatusChanceType updateType in Enum.GetValues(typeof(Notification.TalkStatusChanceType)))
+            {
+                if (updateMessage.Contains(updateType.ToString()))
+                {
+                    String isTalking = GetParamFromString(updateMessage, updateType.ToString());
+                    if (isTalking == "1")
+                    {
+                        client.isTalking = true;
+                    }else if(isTalking == "0")
+                    {
+                        client.isTalking = false;
+                    }
+                    break;
+                }
+            }
+
         }
     }
 }

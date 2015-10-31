@@ -28,17 +28,19 @@ namespace PlayGround2
             };
 
 
-            var urlApi = "http://localhost:13338";
-
-
             SystemInfoService systemInfoService = new SystemInfoService();
+            TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
 
             var container = new UnityContainer();
             container.RegisterType<ISystemInfoService, SystemInfoService>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<ITeamSpeakInfoService, TeamSpeakInfoService>(new HierarchicalLifetimeManager());
+
             container.RegisterInstance<SystemInfoService>(systemInfoService);
+            container.RegisterInstance<TeamSpeakInfoService>(teamspeakInfoService);
 
 
-            
+
 
 
             HttpConfiguration config = new HttpConfiguration();
