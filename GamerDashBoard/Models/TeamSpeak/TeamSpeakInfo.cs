@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TS3Connection.objects;
+
 
 namespace GamerDashBoard.Models.TeamSpeak
 {
-    public class TeamSpeakState
+    public class TeamSpeakInfo
     {
-        public Channel myChannel { get; set; }
-        public Client myClient { get; set; }
+        public TeamSpeakChannelInfo myChannel { get; set; }
+        public TeamSpeakClientInfo myClient { get; set; }
 
     }
 }

@@ -20,9 +20,9 @@ namespace GamerDashBoard.Controllers.TeamSpeak
             this.service = service;
         }
 
-        public TeamSpeakState Get()
+        public TeamSpeakInfo Get()
         {
-            return service.test();
+            return service.getTeamSpeakInfo();
         }
     }
 }

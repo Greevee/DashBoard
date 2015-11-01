@@ -125,7 +125,10 @@
     <Compile Include="Models\ITeamSpeakInfoService.cs" />
     <Compile Include="Models\SystemInfoService.cs" />
     <Compile Include="Models\TeamSpeakInfoService.cs" />
-    <Compile Include="Models\TeamSpeak\TeamSpeakState.cs" />
+    <Compile Include="Models\TeamSpeak\TeamSpeakChannelInfo.cs" />
+    <Compile Include="Models\TeamSpeak\TeamSpeakClientInfo.cs" />
+    <Compile Include="Models\TeamSpeak\TeamSpeakInfo.cs" />
+    <Compile Include="Models\TeamSpeak\TeamSpeakInfoFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolver\UnityResolver.cs" />
@@ -140,6 +143,7 @@
     <Content Include="Style\CSS\myStyle.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Style\Icons\favicon.ico" />
     <Content Include="Style\Icons\normal.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

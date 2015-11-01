@@ -68,28 +68,28 @@ will deliver
 ```
 {
     "myChannel": {
+        "id": "16",
+        "name": "Stammtisch",
         "clients": {
+            "2": {
+                "id": "2",
+                "nickname": "Scratch",
+                "isTalking": false,
+                "client_status": "normal"
+            },
             "5": {
                 "id": "5",
-                "nickname": "Stradivari",
-                "state": 0,
+                "nickname": "britnex",
                 "isTalking": false,
-                "client_input_muted": "0",
-                "client_output_muted": "0",
-                "client_away": "0"
+                "client_status": "normal"
             }
-        },
-        "id": "84",
-        "name": "Wirtschaft"
+        }
     },
     "myClient": {
-        "id": "2",
+        "id": "13",
         "nickname": "Greeve",
-        "state": 0,
         "isTalking": false,
-        "client_input_muted": "0",
-        "client_output_muted": "0",
-        "client_away": "0"
+        "client_status": "normal"
     }
 }
 ```

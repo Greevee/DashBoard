@@ -10,6 +10,6 @@ namespace GamerDashBoard.Models
 {
     public interface ITeamSpeakInfoService
     {
-        TeamSpeakState test();
+        TeamSpeakInfo getTeamSpeakInfo();
     }
 }

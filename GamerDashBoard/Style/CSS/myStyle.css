@@ -91,6 +91,11 @@ html *
     stroke-width: 4%;
 }
 
+.d_teamspeak_icon_muted{
+    stroke: aqua; 
+    stroke-width: 4%;
+    display: none;
+}
 
 
 

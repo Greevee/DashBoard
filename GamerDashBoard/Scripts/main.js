@@ -22,7 +22,7 @@ function setup() {
     //hardware
     jQuery.ajax({
         type: "GET",
-        url: "http://" + window.location.host + "/api/hardwareinfo",
+        url: "http://" + window.location.host + "/api/hardwareinfo?cachebust=" + new Date().getTime(),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (incdata, status, jqXHR) {
@@ -38,14 +38,14 @@ function setup() {
     });
 
     window.setInterval(getTeamSpeakInfo, refresh_ms_teamspeak);
-    //
-    
+
+
 }
 
 function getTeamSpeakInfo() {
     jQuery.ajax({
         type: "GET",
-        url: "http://" + window.location.host + "/api/teamspeakinfo",
+        url: "http://" + window.location.host + "/api/teamspeakinfo?cachebust=" + new Date().getTime(),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (ts3data, status, jqXHR) {
@@ -61,7 +61,7 @@ function getTeamSpeakInfo() {
 function getHardwareInfo() {
     jQuery.ajax({
         type: "GET",
-        url: "http://" + window.location.host + "/api/hardwareinfo",
+        url: "http://" + window.location.host + "/api/hardwareinfo?cachebust=" + new Date().getTime(),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (incdata, status, jqXHR) {
@@ -81,11 +81,24 @@ function refreshTeamSpeak() {
     $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
     $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
 
-    if (teamspeak_data.myClient.isTalking === true) {
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "aqua");
+    if (teamspeak_data.myClient.client_output_muted == "1") {
+
+    } else if (teamspeak_data.myClient.client_input_muted == "1") {
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").hide();
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_muted").show();
+
     } else {
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "");
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_muted").hide();
+        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").show();
+        //no status
+        //show normal
+        if (teamspeak_data.myClient.isTalking === true) {
+            $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "aqua");
+        } else {
+            $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "");
+        }
     }
+
 
 }
 
@@ -97,7 +110,7 @@ function refreshDate() {
 function setupCPU() {
 
     for (i = 0; i < sessionData.numerOfCores; i++) {
-        
+
         var element = $('<div id="d_cpu_bar_' + i + '" class="d_cpu_bar"></div>');
         $("#d_cpu_bar_container").append(element)
 
