@@ -140,6 +140,9 @@
     <Content Include="Scripts\util\myUtil.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\util\tsUtils.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Style\CSS\myStyle.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -8,6 +8,7 @@ var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
 var refresh_ms_teamspeak = 250;
 
+var max_ts_clients = 5;
 
 
 $(document).ready(function () {
@@ -78,31 +79,50 @@ function getHardwareInfo() {
 
 
 function refreshTeamSpeak() {
+    //TODO more than x ppl, change logic to -> only speaker visible
 
-
-
-    //TODO check changes -> only if things changed -> render new
-
-    //handle my user
+    var i = 0;
+    var userContainer = $("#d_teamspeak_user_container");
 
     if (JSON.stringify(sessionData.prevTSData.myClient) == JSON.stringify(teamspeak_data.myClient)) {
-       //do nmothing... or?
+        //do nmothing... or?
+        i++;
     } else {
         console.log("client changed");
+        renderClient(userContainer, i, teamspeak_data.myClient,true);
+        i++;
     }
     if (JSON.stringify(sessionData.prevTSData.myChannel) == JSON.stringify(teamspeak_data.myChannel)) {
         //do nmothing... or?
+
     } else {
-        console.log("channel changed");
-        var numberOfSpeaker=getNumberOfSpeaker();
+        var speakers = getClients(teamspeak_data.myChannel, true);
+        for (var x in speakers) {
+            if (i <= max_ts_clients) {
+                renderClient(userContainer, i, speakers[x],false);
+                i++;
+            }  
+        }
+        var idlers = getClients(teamspeak_data.myChannel, false);
+        for (var z in idlers) {
+            if (i < max_ts_clients) {
+                renderClient(userContainer, i, idlers[z],false);
+                i++;
+            }
+        }
+        if (i < max_ts_clients) {
+            for (j = i; j < max_ts_clients; j++) {
+                $("#d_teamspeak_user_entry_" + j).remove();
+            }
+        }
+
     }
-
-    //handly other users
-
 
     //refresh info
     sessionData.prevTSData=teamspeak_data;
 
+
+    /*
     $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
     $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
 
@@ -128,9 +148,7 @@ function refreshTeamSpeak() {
             $("#d_teamspeak_user_entry_0 .d_teamspeak_icon_normal").css("fill", "");
         }
     }
-
-
-
+    */
 }
 
 function refreshDate() {
