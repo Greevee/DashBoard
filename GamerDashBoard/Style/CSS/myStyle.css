@@ -61,24 +61,29 @@ html *
 
 /* teamspeak styling*/
 .d_teamspeak_user_container{
-   
+    display: block;
+    height: 85%;
 }
+
 
 .d_teamspeak_user_entry{
-     display: block;
+     display: inline;
+	 height: 17%;
 }
-#d_teamspeak_my_user_name{
+#d_teamspeak_user_entry_0{
      font-weight: bold;
 }
-.d_teamspeak_my_user_icon{
-    width: 20%;
+
+.d_teamspeak_username{
+    float: right;
+    width:83%;
 }
 
-
 .d_teamspeak_icon_container{
-    display: block;
-    width: 20%;
-    height: 20%;
+    width: 17%;
+    height: 17%;
+	float:left;
+
 }
 
 .d_teamspeak_icon{
@@ -92,6 +97,11 @@ html *
 }
 
 .d_teamspeak_icon_muted{
+    stroke: aqua; 
+    stroke-width: 4%;
+    display: none;
+}
+.d_teamspeak_icon_speaker{
     stroke: aqua; 
     stroke-width: 4%;
     display: none;

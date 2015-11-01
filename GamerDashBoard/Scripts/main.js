@@ -6,7 +6,7 @@ var cpuBars = {};
 
 var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
-var refresh_ms_teamspeak = 100;
+var refresh_ms_teamspeak = 250;
 
 
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 function setup() {
-
+    sessionData.prevTSData={};
     window.setInterval(refreshDate, refresh_ms_date);
 
     //hardware
@@ -78,26 +78,57 @@ function getHardwareInfo() {
 
 
 function refreshTeamSpeak() {
+
+
+
+    //TODO check changes -> only if things changed -> render new
+
+    //handle my user
+
+    if (JSON.stringify(sessionData.prevTSData.myClient) == JSON.stringify(teamspeak_data.myClient)) {
+       //do nmothing... or?
+    } else {
+        console.log("client changed");
+    }
+    if (JSON.stringify(sessionData.prevTSData.myChannel) == JSON.stringify(teamspeak_data.myChannel)) {
+        //do nmothing... or?
+    } else {
+        console.log("channel changed");
+        var numberOfSpeaker=getNumberOfSpeaker();
+    }
+
+    //handly other users
+
+
+    //refresh info
+    sessionData.prevTSData=teamspeak_data;
+
     $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
     $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
 
-    if (teamspeak_data.myClient.client_output_muted == "1") {
-
-    } else if (teamspeak_data.myClient.client_input_muted == "1") {
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").hide();
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_muted").show();
+    if (teamspeak_data.myClient.client_status == "speaker_muted") {
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").hide();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").hide();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").show();
+        
+    } else if (teamspeak_data.myClient.client_status == "mic_muted") {
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").hide();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").show();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").hide();
 
     } else {
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_muted").hide();
-        $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").show();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").hide();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").show();
+        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").hide();
         //no status
         //show normal
         if (teamspeak_data.myClient.isTalking === true) {
-            $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "aqua");
+            $("#d_teamspeak_user_entry_0 .d_teamspeak_icon_normal").css("fill", "aqua");
         } else {
-            $("#d_teamspeak_my_user_icon .d_teamspeak_icon_normal").css("fill", "");
+            $("#d_teamspeak_user_entry_0 .d_teamspeak_icon_normal").css("fill", "");
         }
     }
+
 
 
 }

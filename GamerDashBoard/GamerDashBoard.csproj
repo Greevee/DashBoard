@@ -143,7 +143,9 @@
     <Content Include="Style\CSS\myStyle.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Style\Icons\favicon.ico" />
+    <Content Include="Style\Icons\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Style\Icons\normal.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
