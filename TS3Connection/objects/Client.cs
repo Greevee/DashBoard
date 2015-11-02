@@ -44,22 +44,19 @@ namespace TS3Connection.objects
             if (this.client_away == "1")
             {
                 this.state = clientState.away;
-                client_status = clientState.away.ToString();
                 return;
             }
             if (this.client_output_muted == "1")
             {
                 this.state = clientState.speaker_muted;
-                client_status = clientState.speaker_muted.ToString();
                 return;
             }
             if (this.client_input_muted == "1")
             {
                 this.state = clientState.mic_muted;
-                client_status = clientState.mic_muted.ToString();
                 return;
             }
-            client_status = clientState.normal.ToString();
+            this.state = clientState.normal;
         }
 
     }

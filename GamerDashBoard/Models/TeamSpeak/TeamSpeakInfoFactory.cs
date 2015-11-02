@@ -33,6 +33,7 @@ namespace GamerDashBoard.Models.TeamSpeak
             TeamSpeakChannelInfo channelInfo = new TeamSpeakChannelInfo();
             channelInfo.id = ts3Chanel.id;
             channelInfo.name = ts3Chanel.name;
+            channelInfo.numberOfClients = ts3Chanel.clients.Count();
             channelInfo.clients = new Dictionary<string, TeamSpeakClientInfo>();
             foreach(KeyValuePair < string,TS3Connection.objects.Client> entry in ts3Chanel.clients)
             {
@@ -47,7 +48,7 @@ namespace GamerDashBoard.Models.TeamSpeak
             TeamSpeakClientInfo clientInfo = new TeamSpeakClientInfo();
             clientInfo.nickname = ts3Client.nickname;
             clientInfo.id = ts3Client.id;
-            clientInfo.client_status = ts3Client.client_status;
+            clientInfo.client_status = ts3Client.state.ToString();
             clientInfo.isTalking = ts3Client.isTalking;
 
             return clientInfo;

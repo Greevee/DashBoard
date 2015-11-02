@@ -8,7 +8,7 @@ var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
 var refresh_ms_teamspeak = 250;
 
-var max_ts_clients = 5;
+var max_ts_clients = 6;
 
 
 $(document).ready(function () {
@@ -92,63 +92,43 @@ function refreshTeamSpeak() {
         renderClient(userContainer, i, teamspeak_data.myClient,true);
         i++;
     }
+
     if (JSON.stringify(sessionData.prevTSData.myChannel) == JSON.stringify(teamspeak_data.myChannel)) {
-        //do nmothing... or?
 
     } else {
-        var speakers = getClients(teamspeak_data.myChannel, true);
-        for (var x in speakers) {
-            if (i <= max_ts_clients) {
-                renderClient(userContainer, i, speakers[x],false);
-                i++;
-            }  
-        }
-        var idlers = getClients(teamspeak_data.myChannel, false);
-        for (var z in idlers) {
+        $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
+        if (teamspeak_data.myChannel.numberOfClients > max_ts_clients) {
+
+            var speakers = getClients(teamspeak_data.myChannel, true);
+            for (var x in speakers) {
+                if (i - 1 < max_ts_clients) {
+                    renderClient(userContainer, i, speakers[x], false);
+                    i++;
+                }
+            }
+
             if (i < max_ts_clients) {
-                renderClient(userContainer, i, idlers[z],false);
+                for (j = i; j < max_ts_clients; j++) {
+                    $("#d_teamspeak_user_entry_" + j).remove();
+                }
+            }
+            //printe x other persons in the channel
+        } else {
+            //everyone is displayed, no change of order
+            var clients = getAllClients(teamspeak_data.myChannel);
+            for (var x in clients) {
+                renderClient(userContainer, i, clients[x], false);
                 i++;
             }
-        }
-        if (i < max_ts_clients) {
-            for (j = i; j < max_ts_clients; j++) {
-                $("#d_teamspeak_user_entry_" + j).remove();
+            if (i < max_ts_clients) {
+                for (j = i; j < max_ts_clients; j++) {
+                    $("#d_teamspeak_user_entry_" + j).remove();
+                }
             }
         }
-
     }
-
     //refresh info
     sessionData.prevTSData=teamspeak_data;
-
-
-    /*
-    $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name);
-    $("#d_teamspeak_my_user_name").text(teamspeak_data.myClient.nickname);
-
-    if (teamspeak_data.myClient.client_status == "speaker_muted") {
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").hide();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").hide();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").show();
-        
-    } else if (teamspeak_data.myClient.client_status == "mic_muted") {
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").hide();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").show();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").hide();
-
-    } else {
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_muted").hide();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_normal").show();
-        $("#d_teamspeak_user_icon_0 .d_teamspeak_icon_speaker").hide();
-        //no status
-        //show normal
-        if (teamspeak_data.myClient.isTalking === true) {
-            $("#d_teamspeak_user_entry_0 .d_teamspeak_icon_normal").css("fill", "aqua");
-        } else {
-            $("#d_teamspeak_user_entry_0 .d_teamspeak_icon_normal").css("fill", "");
-        }
-    }
-    */
 }
 
 function refreshDate() {

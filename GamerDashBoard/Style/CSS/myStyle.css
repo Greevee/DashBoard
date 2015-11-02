@@ -68,7 +68,7 @@ html *
 
 .d_teamspeak_user_entry{
      display: inline;
-	 height: 17%;
+	 height: 15%;
 }
 #d_teamspeak_user_entry_0{
      font-weight: bold;
@@ -80,8 +80,8 @@ html *
 }
 
 .d_teamspeak_icon_container{
-    width: 17%;
-    height: 17%;
+    width: 15%;
+    height: 15%;
 	float:left;
 
 }
@@ -93,18 +93,16 @@ html *
 
 .d_teamspeak_icon_normal{
     stroke: aqua; 
-    stroke-width: 4%;
+    stroke-width: 17%;
 }
 
 .d_teamspeak_icon_muted{
     stroke: aqua; 
-    stroke-width: 4%;
-    display: none;
+    stroke-width: 17%;
 }
 .d_teamspeak_icon_speaker{
     stroke: aqua; 
-    stroke-width: 4%;
-    display: none;
+    stroke-width: 17%;
 }
 
 
@@ -125,7 +123,7 @@ html *
    	-webkit-transition:  height 1s ease;
 	-moz-transition:  height 1s ease;
 	-o-transition:  height 1s ease;
-	transition: width 1s ease, height 2s ease;
+	transition: width 1s ease, height 1s ease;
 }
 
 .d_innerbar_value{

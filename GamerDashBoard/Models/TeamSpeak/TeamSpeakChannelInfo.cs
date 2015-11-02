@@ -10,6 +10,7 @@ namespace GamerDashBoard.Models.TeamSpeak
     {
         public string id { get; set; }
         public string name { get; set; }
+        public int numberOfClients { get; set; }
         public Dictionary<string, TeamSpeakClientInfo> clients { get; set; }
     }
 }
