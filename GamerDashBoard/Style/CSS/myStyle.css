@@ -67,8 +67,10 @@ html *
 
 
 .d_teamspeak_user_entry{
-     display: inline;
-	 height: 15%;
+     display: block;
+	 height: 45px;
+     vertical-align : middle;
+     line-height : 45px;
 }
 #d_teamspeak_user_entry_0{
      font-weight: bold;
@@ -81,7 +83,7 @@ html *
 
 .d_teamspeak_icon_container{
     width: 15%;
-    height: 15%;
+    height: 100%;
 	float:left;
 
 }
