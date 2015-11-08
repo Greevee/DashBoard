@@ -18,15 +18,11 @@ namespace PlayGround2
             var url = "http://localhost:13337";
             var root = args.Length > 0 ? args[0] : ".";
             var fileSystem = new PhysicalFileSystem(root);
-
-
-
             var options = new FileServerOptions
             {
                 EnableDirectoryBrowsing = true,
                 FileSystem = fileSystem
             };
-
 
             SystemInfoService systemInfoService = new SystemInfoService();
             TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
@@ -38,10 +34,6 @@ namespace PlayGround2
 
             container.RegisterInstance<SystemInfoService>(systemInfoService);
             container.RegisterInstance<TeamSpeakInfoService>(teamspeakInfoService);
-
-
-
-
 
             HttpConfiguration config = new HttpConfiguration();
             config.DependencyResolver = new UnityResolver(container);
@@ -55,16 +47,9 @@ namespace PlayGround2
 
             urls.Urls.Add("http://*:13337");
 
-
-            
             WebApp.Start(urls, builder => builder.UseFileServer(options).UseWebApi(config));
-
-            Console.ReadLine();
-
-
-
-
-
+            
+            
 
         }
     }
