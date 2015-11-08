@@ -25,3 +25,20 @@ function getNetworkValueFormatted(kbyte_as_number) {
         return kbyte_as_number.toFixed(0) + " KByte/s"
     }
 }
+
+function getTimerString(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+
+    if (secs.toFixed(0).length == 1) {
+        secs = "0" + secs.toFixed(0);
+    }
+    if (mins.toFixed(0).length == 1) {
+        mins = "0" + mins.toFixed(0);
+    }
+    return hrs + ':' + mins + ':' + secs;
+}

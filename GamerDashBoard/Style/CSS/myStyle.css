@@ -67,9 +67,9 @@ html *
 }
 
 #d_date_timer_container{
-    width: 21%;
+    width: 25%;
     float: right;
-    height: 78%;
+    height: 100%;
 
 }
 
@@ -82,13 +82,22 @@ html *
     font-size: 3vw;
     float: right;
 }
+#d_date_timer_icon{
+    height: 100%;
+    width: 100%;
+}
+.d_timer_icon{
+    stroke: aqua; 
+    stroke-width: 10%;
+    fill-opacity: 0;  
+
+}
 
 /* teamspeak styling*/
 .d_teamspeak_user_container{
     display: block;
     height: 85%;
 }
-
 
 .d_teamspeak_user_entry{
      display: block;
@@ -132,7 +141,7 @@ html *
 }
 
 
-
+/*BAR Settings*/
 .d_outer_bar{
     position: relative;
     border-radius:18px;
@@ -166,7 +175,7 @@ html *
 }
 
 
-
+/* General Settings*/
 .d_container{
 
     background: rgba(54, 25, 25, .5);
@@ -182,19 +191,11 @@ html *
 
 
 }
-
 .d_value{
     color: aqua;
     font-size: 3vw;
+    overflow:hidden;
 }
-
-d_network_value_direction{
-       width:25%;
-}
-
-
-
-
 
 .d_right{
     float:right;
@@ -203,11 +204,17 @@ d_network_value_direction{
     float:left;
 }
 
+/*Network*/
+d_network_value_direction{
+       width:25%;
+}
 
+/*dafuq is this? test if needed*/
 .therm inner-therm vertical{
     font-size: 2em;
 }
 
+/*CPU */
 #d_cpu_info{
     height:15%;
 }
@@ -223,3 +230,5 @@ d_network_value_direction{
 #d_memory_bar_container {
     height: 85%;
 }
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

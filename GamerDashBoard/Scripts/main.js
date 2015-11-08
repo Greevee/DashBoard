@@ -10,14 +10,20 @@ var refresh_ms_teamspeak = 250;
 
 var max_ts_clients = 5;
 
+var timer= {};
+
 $(document).ready(function () {
     //site has been loaded, starting stuff!
     setup();
 });
 
 function setup() {
-    sessionData.prevTSData={};
+    sessionData.prevTSData = {};
+    //date
+
     window.setInterval(refreshDate, refresh_ms_date);
+    timer = new pizzatimer(5000);
+    timer.appendToEle($("#d_date_timer_icon"));
 
     //hardware
     jQuery.ajax({
@@ -101,7 +107,6 @@ function refreshTeamSpeak() {
             //do nmothing... or?
             i++;
         } else {
-            console.log("client changed");
             renderClient(userContainer, i, teamspeak_data.myClient, true);
             i++;
         }
@@ -147,7 +152,12 @@ function refreshTeamSpeak() {
 
 function refreshDate() {
     $("#d_date_time").text(getTimeString());
-    $("#d_date_date").text(getDateString());
+    if (sessionData.timerIsRunning === true) {
+        $("#d_date_date").text(getTimerString(Date.now() - sessionData.timerstart));
+    } else {
+        $("#d_date_date").text(getDateString());
+    }
+
 }
 
 function setupCPU() {

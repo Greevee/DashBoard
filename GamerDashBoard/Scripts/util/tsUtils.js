@@ -49,8 +49,10 @@ function renderClient(userContainer, number, client, isMe) {
             icon_container.append(icon);
             if (client.isTalking === true) {
                 icon.css("fill", "aqua");
+                icon.css("fill-opcapity","1")
             } else {
                 icon.css("fill", "");
+                icon.css("fill-opcapity", "0")
             }
             break;
     }
