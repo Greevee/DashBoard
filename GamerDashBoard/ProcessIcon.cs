@@ -32,7 +32,7 @@ namespace RainbowDashBoard
 			// Put the icon in the system tray and allow it react to mouse clicks.			
 			ni.MouseClick += new MouseEventHandler(ni_MouseClick);
 			ni.Icon = Resources.favicon;
-			ni.Text = "DashBoard";
+			ni.Text = "RainbowDashBoard";
 			ni.Visible = true;
 
 			// Attach a context menu.
@@ -59,7 +59,7 @@ namespace RainbowDashBoard
 			if (e.Button == MouseButtons.Left)
 			{
 				// Start Windows Explorer.
-				Process.Start("explorer", null);
+				//Process.Start("explorer", null);
 			}
 		}
 	}
