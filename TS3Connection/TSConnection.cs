@@ -18,6 +18,7 @@ using TS3Connection.messages;
 using TS3QueryLib.Core.Client.Responses;
 using TS3QueryLib.Core.CommandHandling;
 
+
 namespace TS3Connection
 {
     public class TSConnection
@@ -36,18 +37,19 @@ namespace TS3Connection
         }
         public void Connect()
         {
-            ConnectToClient();
-        }
-
-        public void Disconnect()
-        {
-            DisconnectFromClient();
+            try
+            {
+                ConnectToClient();
+            }
+            catch(Exception e)
+            {
+                Console.Write("didnt work that well: " + e.Message);
+            }
+           
         }
 
         public void ConnectToClient()
         {
-            if (QueryDispatcher != null)
-                return;
             QueryDispatcher = new AsyncTcpDispatcher("localhost", 25639);
             QueryDispatcher.BanDetected += QueryDispatcher_BanDetected;
             QueryDispatcher.ReadyForSendingCommands += QueryDispatcher_ReadyForSendingCommands;
@@ -59,6 +61,7 @@ namespace TS3Connection
 
         public void DisconnectFromClient()
         {
+
             if (QueryRunner != null)
                 QueryRunner.Dispose();
             QueryDispatcher = null;
@@ -68,21 +71,38 @@ namespace TS3Connection
 
         private void QueryDispatcher_ReadyForSendingCommands(object sender, System.EventArgs e)
         {
-            QueryRunner = new QueryRunner(QueryDispatcher);
-            QueryRunner.Notifications.ChannelTalkStatusChanged += Notifications_ChannelTalkStatusChanged;
-            QueryRunner.RegisterForNotifications(ClientNotifyRegisterEvent.Any);
-            this.state = State.Connected;
-            setupClientAndChannel();
-            state = State.Connected;
+            try
+            {
+                QueryRunner = new QueryRunner(QueryDispatcher);
+                QueryRunner.Notifications.ChannelTalkStatusChanged += Notifications_ChannelTalkStatusChanged;
+                QueryRunner.RegisterForNotifications(ClientNotifyRegisterEvent.Any);
+                this.state = State.Connected;
+                setupClientAndChannel();
+                state = State.Connected;
+            }
+            catch
+            {
+                state = State.Disconnected;
+                Reconnect();
+            }
+
 
         }
 
-        private void setupClientAndChannel()
+        public void setupClientAndChannel()
         {
+            try
+            {
+                WhoAmIResponse whoAmIResponse = QueryRunner.SendWhoAmI();
+                myClient = getClientInfo(whoAmIResponse.ClientId.ToString());
+                myChannel = getChannelInfo(whoAmIResponse.ChannelId.ToString());
 
-            WhoAmIResponse whoAmIResponse = QueryRunner.SendWhoAmI();
-            myClient = getClientInfo(whoAmIResponse.ClientId.ToString());
-            myChannel = getChannelInfo(whoAmIResponse.ChannelId.ToString());
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            
            
         }
 
@@ -143,20 +163,12 @@ namespace TS3Connection
 
         }
 
-        private void updateMyChannel()
-        {
-            WhoAmIResponse whoAmIResponse = QueryRunner.SendWhoAmI();
-
-        }
-
-
-
-
         private void QueryDispatcher_ServerClosedConnection(object sender, System.EventArgs e)
         {
             Console.WriteLine("Connection to server closed/lost.");
             DisconnectFromClient();
             state = State.Disconnected;
+            Reconnect();
         }
 
         private void QueryDispatcher_BanDetected(object sender, EventArgs<SimpleResponse> e)
@@ -173,6 +185,14 @@ namespace TS3Connection
             Console.WriteLine("Socket error!! Error Code: " + e.SocketError);
             DisconnectFromClient();
             state = State.Disconnected;
+            Reconnect();
+        }
+
+        private async void Reconnect()
+        {
+            await Task.Delay(10000);
+            Connect();
+
         }
 
         private void QueryDispatcher_NotificationReceived(object sender, EventArgs<string> e)
@@ -261,6 +281,5 @@ namespace TS3Connection
         {
             //dont need it, i guess
         }
-
     }
 }

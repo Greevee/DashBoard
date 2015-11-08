@@ -14,20 +14,19 @@ namespace GamerDashBoard.Models
     {
         TSConnection ts3;
         TeamSpeakInfoFactory teamSpeakInfoFactory;
+        Thread t;
 
         public TeamSpeakInfoService()
         {
             ts3 = new TS3Connection.TSConnection();
-            Thread t = new Thread(new ThreadStart(ts3.Connect));
+            t = new Thread(new ThreadStart(ts3.Connect));
             t.Start();
             teamSpeakInfoFactory = new TeamSpeakInfoFactory(ts3);
         }
 
         public TeamSpeakInfo getTeamSpeakInfo()
         {
-            TeamSpeakInfo teamspeakState = teamSpeakInfoFactory.GetTeamSpeakInfo();
-
-            return teamspeakState;
+            return teamSpeakInfoFactory.GetTeamSpeakInfo();
         }
     }
 }

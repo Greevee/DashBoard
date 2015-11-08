@@ -22,9 +22,16 @@ namespace GamerDashBoard.Models.TeamSpeak
         public TeamSpeakInfo GetTeamSpeakInfo()
         {
             TeamSpeakInfo tsinfo = new TeamSpeakInfo();
+            tsinfo.status = ts3.state.ToString();
             tsinfo.myClient = GetClientInfo(ts3.myClient);
             tsinfo.myChannel = GetChannelInfo(ts3.myChannel);
+            return tsinfo;
+        }
 
+        public TeamSpeakInfo GetTeamSpeakStatus()
+        {
+            TeamSpeakInfo tsinfo = new TeamSpeakInfo();
+            tsinfo.status =  ts3.state.ToString();
             return tsinfo;
         }
 

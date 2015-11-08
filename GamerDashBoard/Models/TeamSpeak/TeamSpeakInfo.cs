@@ -9,6 +9,7 @@ namespace GamerDashBoard.Models.TeamSpeak
 {
     public class TeamSpeakInfo
     {
+        public string status{ get; set; }
         public TeamSpeakChannelInfo myChannel { get; set; }
         public TeamSpeakClientInfo myClient { get; set; }
 
