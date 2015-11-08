@@ -7,8 +7,8 @@
     <ProjectGuid>{55D85EBB-2816-4F49-81D5-6A4A48394552}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GamerDashBoard</RootNamespace>
-    <AssemblyName>GamerDashBoard</AssemblyName>
+    <RootNamespace>RainbowDashBoard</RootNamespace>
+    <AssemblyName>RainbowDashBoard</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -57,7 +57,7 @@
     <ManifestKeyFile>GamerDashBoard_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -66,10 +66,15 @@
     <ApplicationIcon>Style\Icons\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PlayGround2.Program</StartupObject>
+    <StartupObject>RainbowDashBoard.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -122,6 +127,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -135,6 +141,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -143,6 +150,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContextMenus.cs" />
     <Compile Include="Controllers\Hardware\CPUInfoController.cs" />
     <Compile Include="Controllers\Hardware\HardwareInfoController.cs" />
     <Compile Include="Controllers\Hardware\NetworkInfoController.cs" />
@@ -168,11 +182,26 @@
     <Compile Include="Models\TeamSpeak\TeamSpeakClientInfo.cs" />
     <Compile Include="Models\TeamSpeak\TeamSpeakInfo.cs" />
     <Compile Include="Models\TeamSpeak\TeamSpeakInfoFactory.cs" />
+    <Compile Include="ProcessIcon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resolver\UnityResolver.cs" />
+    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Style\Images\settings.PNG" />
+    <None Include="Resources\TryIcon.ico" />
+    <Content Include="Resources\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\test.png" />
+    <None Include="Resources\vocaloid-hatsune-miku-1920x1080.jpg" />
     <Content Include="Scripts\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -191,6 +220,8 @@
     <Content Include="Style\Icons\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Style\Images\about.png" />
+    <None Include="Style\Images\exit.PNG" />
     <Content Include="Style\Images\miku_wallpaper.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -237,6 +268,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

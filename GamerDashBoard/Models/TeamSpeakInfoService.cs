@@ -1,4 +1,4 @@
-﻿using GamerDashBoard.Models.TeamSpeak;
+﻿using RainbowDashBoard.Models.TeamSpeak;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TS3Connection;
 
-namespace GamerDashBoard.Models
+namespace RainbowDashBoard.Models
 {
     class TeamSpeakInfoService : ITeamSpeakInfoService
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamerDashBoard.Models.TeamSpeak
+namespace RainbowDashBoard.Models.TeamSpeak
 {
     public class TeamSpeakChannelInfo
     {

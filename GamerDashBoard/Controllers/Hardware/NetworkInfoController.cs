@@ -1,8 +1,8 @@
-﻿using GamerDashBoard.Models;
-using GamerDashBoard.Models.Hardware.Network;
+﻿using RainbowDashBoard.Models;
+using RainbowDashBoard.Models.Hardware.Network;
 using System.Web.Http;
 
-namespace GamerDashBoard.Controllers.Hardware
+namespace RainbowDashBoard.Controllers.Hardware
 {
     public class NetworkInfoController : ApiController
     {

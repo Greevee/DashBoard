@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PlayGround2")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("RainbowDashBoard")]
+[assembly: AssemblyDescription("RainbowDashBoard for Smartphones. By Sebastian Gräser")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PlayGround2")]
+[assembly: AssemblyProduct("RainbowDashBoard")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

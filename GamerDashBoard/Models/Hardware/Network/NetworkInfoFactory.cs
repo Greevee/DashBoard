@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamerDashBoard.Models.Hardware.Network
+namespace RainbowDashBoard.Models.Hardware.Network
 {
     public class NetworkInfoFactory
     {

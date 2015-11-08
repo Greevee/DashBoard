@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GamerDashBoard.Models.Hardware.Network;
-using GamerDashBoard.Models.Hardware.CPU;
-using GamerDashBoard.Models.Hardware.Ram;
-using GamerDashBoard.Models.Hardware;
+using RainbowDashBoard.Models.Hardware.Network;
+using RainbowDashBoard.Models.Hardware.CPU;
+using RainbowDashBoard.Models.Hardware.Ram;
+using RainbowDashBoard.Models.Hardware;
 
-namespace GamerDashBoard.Models.Hardware
+namespace RainbowDashBoard.Models.Hardware
 {
     public class HardwareInfo : IHardwareInfo
     {

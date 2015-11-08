@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamerDashBoard.Models.Hardware.Ram
+namespace RainbowDashBoard.Models.Hardware.Ram
 {
     class RamInfoService
     {

@@ -1,5 +1,5 @@
-﻿using GamerDashBoard.Models;
-using GamerDashBoard.Models.Hardware.Ram;
+﻿using RainbowDashBoard.Models;
+using RainbowDashBoard.Models.Hardware.Ram;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace GamerDashBoard.Controllers.Hardware
+namespace RainbowDashBoard.Controllers.Hardware
 {
     public class RamInfoController : ApiController
     {

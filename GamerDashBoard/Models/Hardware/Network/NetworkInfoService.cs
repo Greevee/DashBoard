@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace GamerDashBoard.Models.Hardware.Network
+namespace RainbowDashBoard.Models.Hardware.Network
 {
     public class NetworkInfoService
     {

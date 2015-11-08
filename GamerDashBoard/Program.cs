@@ -1,55 +1,28 @@
-﻿using Microsoft.Owin.FileSystems;
-using Microsoft.Owin.Hosting;
-using Microsoft.Owin.StaticFiles;
-using Owin;
+﻿using RainbowDashBoard;
 using System;
-using System.Net.Http;
-using System.Web.Http;
-using GamerDashBoard.Resolver;
-using GamerDashBoard.Models;
-using Microsoft.Practices.Unity;
+using System.Windows.Forms;
 
-namespace PlayGround2
+namespace RainbowDashBoard
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            var url = "http://localhost:13337";
-            var root = args.Length > 0 ? args[0] : ".";
-            var fileSystem = new PhysicalFileSystem(root);
-            var options = new FileServerOptions
+            Server gdbServer = new Server();
+            gdbServer.startServer();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Show the system tray icon.					
+            using (ProcessIcon pi = new ProcessIcon())
             {
-                EnableDirectoryBrowsing = true,
-                FileSystem = fileSystem
-            };
+                pi.Display();
 
-            SystemInfoService systemInfoService = new SystemInfoService();
-            TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
+                // Make sure the application runs!
+                Application.Run();
+            }
 
-            var container = new UnityContainer();
-            container.RegisterType<ISystemInfoService, SystemInfoService>(new HierarchicalLifetimeManager());
-
-            container.RegisterType<ITeamSpeakInfoService, TeamSpeakInfoService>(new HierarchicalLifetimeManager());
-
-            container.RegisterInstance<SystemInfoService>(systemInfoService);
-            container.RegisterInstance<TeamSpeakInfoService>(teamspeakInfoService);
-
-            HttpConfiguration config = new HttpConfiguration();
-            config.DependencyResolver = new UnityResolver(container);
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
-            StartOptions urls = new StartOptions();
-
-            urls.Urls.Add("http://*:13337");
-
-            WebApp.Start(urls, builder => builder.UseFileServer(options).UseWebApi(config));
-            
-            
 
         }
     }
