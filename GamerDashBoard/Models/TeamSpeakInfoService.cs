@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TS3Connection;
-using GamerDashBoard.Models.TeamSpeak;
 
 namespace GamerDashBoard.Models
 {

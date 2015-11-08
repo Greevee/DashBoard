@@ -6,7 +6,7 @@ var cpuBars = {};
 
 var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
-var refresh_ms_teamspeak = 5000;
+var refresh_ms_teamspeak = 250;
 
 var max_ts_clients = 5;
 
