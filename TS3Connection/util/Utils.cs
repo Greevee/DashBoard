@@ -13,7 +13,7 @@ namespace TS3Connection.util
     {
         public static string GetParamFromString(string response, string parameter)
         {
-            Regex regex = new Regex(parameter + @"=([^\s-]*)");
+            Regex regex = new Regex(parameter + @"=([^\s]*)");
             Match match = regex.Match(response);
             if (match.Success)
             {
