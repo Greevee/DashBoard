@@ -28,7 +28,9 @@ function renderClient(userContainer, number, client, isMe) {
     var icon_container = $('<span id="d_teamspeak_icon_container" class="d_teamspeak_icon_container"></span>')
     userEntry.append(icon_container);
 
-    var user_name = $(' <span id="d_teamspeak_my_user_name" class="d_value d_teamspeak_username">' + client.nickname + '</span>')
+    var nickname = client.nickname.replace(/\\s/g, " ")
+
+    var user_name = $(' <span id="d_teamspeak_my_user_name" class="d_value d_teamspeak_username">' + nickname + '</span>')
     userEntry.append(user_name);
 
     switch (client.client_status) {
