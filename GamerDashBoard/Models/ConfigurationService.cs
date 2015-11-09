@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using RainbowDashBoard.Models.Configuration;
 using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace RainbowDashBoard.Models
 {
     class ConfigurationService : IConfigurationService
     {
         Configuration.Configuration config;
+        string fileName = @"Config/Config.xml";
 
         public Configuration.Configuration getConfig()
         {
@@ -19,19 +22,43 @@ namespace RainbowDashBoard.Models
 
         public ConfigurationService()
         {
-            string fileName = @"Config/Config.xml";
             if (File.Exists(fileName))
             {
-                Console.WriteLine("File does exist.");
+                //load config
+                
             }
             else{
-                Console.WriteLine("File does not exist.");
-                TextWriter tw = new StreamWriter(fileName, true);
-                tw.WriteLine("The next line!");
-                tw.Close();
+                //create new config  and write it
+                config = new Configuration.Configuration();
+                Configuration.Modul.NetworkConfiguration networkcon = new Configuration.Modul.NetworkConfiguration();
+                networkcon.interfaceName = "test";
+                config.networkConfig = networkcon;
+                SerializeObject(config);
             }
                
-            config = new Configuration.Configuration();
+           
+        }
+        public void SerializeObject<T>(T serializableObject)
+        {
+            if (serializableObject == null) { return; }
+
+            try
+            {
+                XmlDocument xmlDocument = new XmlDocument();
+                XmlSerializer serializer = new XmlSerializer(serializableObject.GetType());
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    serializer.Serialize(stream, serializableObject);
+                    stream.Position = 0;
+                    xmlDocument.Load(stream);
+                    xmlDocument.Save(fileName);
+                    stream.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log exception here
+            }
         }
     }
 }

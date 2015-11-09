@@ -8,6 +8,6 @@ namespace RainbowDashBoard.Models.Configuration
 {
     public class Configuration
     {
-        Modul.NetworkConfiguration networkConfig { get; set; }
+        public Modul.NetworkConfiguration networkConfig { get; set; }
     }
 }

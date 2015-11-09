@@ -6,22 +6,11 @@ using System.Threading.Tasks;
 
 namespace RainbowDashBoard.Models.Configuration.Modul
 {
-    class NetworkConfiguration : Modul.IModulConfiguration
+    public class NetworkConfiguration 
     {
         public string interfaceName { get; set; }
-        private bool enabled = false;
+        public bool enabled = false;
 
-        public bool isEnabled()
-        {
-            if (enabled == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
     }
 }

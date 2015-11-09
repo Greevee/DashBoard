@@ -17,7 +17,7 @@ namespace RainbowDashBoard
 
         SystemInfoService systemInfoService = new SystemInfoService();
         TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
-        SettingsService settingsService = new SettingsService();
+        ConfigurationService settingsService = new ConfigurationService();
 
         public Configuration getConfiguration()
         {
@@ -37,11 +37,11 @@ namespace RainbowDashBoard
             var container = new UnityContainer();
             container.RegisterType<ISystemInfoService, SystemInfoService>(new HierarchicalLifetimeManager());
             container.RegisterType<ITeamSpeakInfoService, TeamSpeakInfoService>(new HierarchicalLifetimeManager());
-            container.RegisterType<ISettingsService, SettingsService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IConfigurationService, ConfigurationService>(new HierarchicalLifetimeManager());
 
             container.RegisterInstance<SystemInfoService>(systemInfoService);
             container.RegisterInstance<TeamSpeakInfoService>(teamspeakInfoService);
-            container.RegisterInstance<SettingsService>(settingsService);
+            container.RegisterInstance<ConfigurationService>(settingsService);
 
             HttpConfiguration config = new HttpConfiguration();
             config.DependencyResolver = new UnityResolver(container);

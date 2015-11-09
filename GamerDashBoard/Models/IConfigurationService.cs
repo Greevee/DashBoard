@@ -7,7 +7,7 @@ using RainbowDashBoard.Models.Configuration;
 
 namespace RainbowDashBoard.Models
 {
-    interface ISettingsService
+    interface IConfigurationService
     {
        Configuration.Configuration  getConfig();
     }
