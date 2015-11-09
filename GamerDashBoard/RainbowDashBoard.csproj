@@ -162,6 +162,9 @@
     <Compile Include="Controllers\Hardware\NetworkInfoController.cs" />
     <Compile Include="Controllers\Hardware\RamInfoController.cs" />
     <Compile Include="Controllers\TeamSpeak\TeamSpeakInfoController.cs" />
+    <Compile Include="Models\Configuration\Configuration.cs" />
+    <Compile Include="Models\Configuration\Modul\IModulConfiguration.cs" />
+    <Compile Include="Models\Configuration\Modul\NetworkConfiguration.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfo.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfoFactory.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfoService.cs" />
@@ -174,8 +177,10 @@
     <Compile Include="Models\Hardware\Ram\RamInfo.cs" />
     <Compile Include="Models\Hardware\Ram\RamInfoFactory.cs" />
     <Compile Include="Models\Hardware\Ram\RamInfoService.cs" />
+    <Compile Include="Models\ISettingsService.cs" />
     <Compile Include="Models\ISystemInfoService.cs" />
     <Compile Include="Models\ITeamSpeakInfoService.cs" />
+    <Compile Include="Models\SettingsService.cs" />
     <Compile Include="Models\SystemInfoService.cs" />
     <Compile Include="Models\TeamSpeakInfoService.cs" />
     <Compile Include="Models\TeamSpeak\TeamSpeakChannelInfo.cs" />
@@ -201,9 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
-    <None Include="Config\config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Style\Images\settings.PNG" />
     <None Include="Resources\TryIcon.ico" />
     <Content Include="Resources\favicon.ico">
@@ -289,6 +291,9 @@
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,9 +12,17 @@ namespace RainbowDashBoard
 {
     public partial class Settings : Form
     {
+        private Server server;
+
         public Settings()
         {
             InitializeComponent();
+
+        }
+
+        public Settings(Server server)
+        {
+            this.server = server;
         }
     }
 }

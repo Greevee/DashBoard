@@ -12,6 +12,12 @@ namespace RainbowDashBoard
 
         bool isAboutLoaded = false;
         bool isSettingsLoaded = false;
+        private Server server;
+
+        public ContextMenus(Server server)
+        {
+            this.server = server;
+        }
 
         public ContextMenuStrip Create()
 		{
@@ -23,7 +29,7 @@ namespace RainbowDashBoard
             // Settings.
             item = new ToolStripMenuItem();
             item.Text = "Settings";
-            item.Click += new EventHandler(About_Click);
+            item.Click += new EventHandler(Settings_Click);
             item.Image = Resources.settings;
             menu.Items.Add(item);
 
@@ -53,7 +59,7 @@ namespace RainbowDashBoard
             if (!isSettingsLoaded)
             {
                 isSettingsLoaded = true;
-                new About().ShowDialog();
+                new Settings(server).ShowDialog();
                 isSettingsLoaded = false;
             }
         }

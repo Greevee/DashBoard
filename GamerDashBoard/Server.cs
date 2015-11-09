@@ -8,11 +8,22 @@ using System.Web.Http;
 using RainbowDashBoard.Resolver;
 using RainbowDashBoard.Models;
 using Microsoft.Practices.Unity;
+using RainbowDashBoard.Models.Configuration;
 
 namespace RainbowDashBoard
 {
-    class Server
+    public class Server
     {
+
+        SystemInfoService systemInfoService = new SystemInfoService();
+        TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
+        SettingsService settingsService = new SettingsService();
+
+        public Configuration getConfiguration()
+        {
+            return settingsService.getConfig();
+        }
+
         public void startServer()
         {
 
@@ -23,16 +34,14 @@ namespace RainbowDashBoard
                 FileSystem = fileSystem
             };
 
-            SystemInfoService systemInfoService = new SystemInfoService();
-            TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
-
             var container = new UnityContainer();
             container.RegisterType<ISystemInfoService, SystemInfoService>(new HierarchicalLifetimeManager());
-
             container.RegisterType<ITeamSpeakInfoService, TeamSpeakInfoService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ISettingsService, SettingsService>(new HierarchicalLifetimeManager());
 
             container.RegisterInstance<SystemInfoService>(systemInfoService);
             container.RegisterInstance<TeamSpeakInfoService>(teamspeakInfoService);
+            container.RegisterInstance<SettingsService>(settingsService);
 
             HttpConfiguration config = new HttpConfiguration();
             config.DependencyResolver = new UnityResolver(container);

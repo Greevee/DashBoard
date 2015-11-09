@@ -11,11 +11,12 @@ namespace RainbowDashBoard
         {
             Server gdbServer = new Server();
             gdbServer.startServer();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Show the system tray icon.					
-            using (ProcessIcon pi = new ProcessIcon())
+            using (SysTrayApp pi = new SysTrayApp(gdbServer))
             {
                 pi.Display();
 
