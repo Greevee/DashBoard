@@ -10,14 +10,14 @@ using System.Xml.Serialization;
 
 namespace RainbowDashBoard.Models
 {
-    class ConfigurationService : IConfigurationService
+    public class ConfigurationService : IConfigurationService
     {
         Configuration.Configuration config;
         string fileName = @"Config/Config.xml";
 
         public Configuration.Configuration getConfig()
         {
-            throw new NotImplementedException();
+            return config;
         }
 
         public ConfigurationService()
@@ -25,19 +25,23 @@ namespace RainbowDashBoard.Models
             if (File.Exists(fileName))
             {
                 //load config
-                
+                config=DeSerializeObject<Configuration.Configuration>(fileName);
+
             }
             else{
                 //create new config  and write it
-                config = new Configuration.Configuration();
-                Configuration.Modul.NetworkConfiguration networkcon = new Configuration.Modul.NetworkConfiguration();
-                networkcon.interfaceName = "test";
-                config.networkConfig = networkcon;
+                config = ConfigurationFactory.CreateConfig();
                 SerializeObject(config);
             }
                
            
         }
+
+        public void save()
+        {
+            SerializeObject(config);
+        }
+
         public void SerializeObject<T>(T serializableObject)
         {
             if (serializableObject == null) { return; }
@@ -59,6 +63,42 @@ namespace RainbowDashBoard.Models
             {
                 //Log exception here
             }
+        }
+
+        public T DeSerializeObject<T>(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName)) { return default(T); }
+
+            T objectOut = default(T);
+
+            try
+            {
+                string attributeXml = string.Empty;
+
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(fileName);
+                string xmlString = xmlDocument.OuterXml;
+
+                using (StringReader read = new StringReader(xmlString))
+                {
+                    Type outType = typeof(T);
+
+                    XmlSerializer serializer = new XmlSerializer(outType);
+                    using (XmlReader reader = new XmlTextReader(read))
+                    {
+                        objectOut = (T)serializer.Deserialize(reader);
+                        reader.Close();
+                    }
+
+                    read.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log exception here
+            }
+
+            return objectOut;
         }
     }
 }

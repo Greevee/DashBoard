@@ -9,7 +9,7 @@ using TS3Connection;
 
 namespace RainbowDashBoard.Models
 {
-    class TeamSpeakInfoService : ITeamSpeakInfoService
+    public class TeamSpeakInfoService : ITeamSpeakInfoService
     {
         TSConnection ts3;
         TeamSpeakInfoFactory teamSpeakInfoFactory;

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace RainbowDashBoard.Models.Configuration.Modul
 {
-    public class NetworkConfiguration 
+    public class ClockConfiguration
     {
-        public string interfaceName { get; set; }
         public bool enabled = true;
+        public int alarmSeconds = 900;
 
-        public NetworkConfiguration()
+        public ClockConfiguration()
         {
-            this.interfaceName = "";
             this.enabled = true;
         }
     }

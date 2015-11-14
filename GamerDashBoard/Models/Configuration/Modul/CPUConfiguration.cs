@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace RainbowDashBoard.Models.Configuration.Modul
 {
-    public class NetworkConfiguration 
+    public class CPUConfiguration
     {
-        public string interfaceName { get; set; }
         public bool enabled = true;
 
-        public NetworkConfiguration()
+        public CPUConfiguration()
         {
-            this.interfaceName = "";
             this.enabled = true;
         }
     }

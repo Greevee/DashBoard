@@ -9,5 +9,10 @@ namespace RainbowDashBoard.Models.Configuration
     public class Configuration
     {
         public Modul.NetworkConfiguration networkConfig { get; set; }
+        public Modul.ClockConfiguration clockConfig { get; set; }
+        public Modul.CPUConfiguration cpuConfig { get; set; }
+        public Modul.MemoryConfiguration memoryConfig { get; set; }
+        public Modul.TeamSpeakConfiguration tsconfig { get; set; }
+        public Modul.StyleConfiguration styleconig { get; set; }
     }
 }

@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace RainbowDashBoard.Models.Configuration.Modul
 {
-    public class NetworkConfiguration 
+    public class TeamSpeakConfiguration
     {
-        public string interfaceName { get; set; }
         public bool enabled = true;
-
-        public NetworkConfiguration()
+        public TeamSpeakConfiguration()
         {
-            this.interfaceName = "";
             this.enabled = true;
         }
     }

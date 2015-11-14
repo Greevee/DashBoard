@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using RainbowDashBoard.Properties;
 using System.Drawing;
+using RainbowDashBoard.Forms;
 
 namespace RainbowDashBoard
 {

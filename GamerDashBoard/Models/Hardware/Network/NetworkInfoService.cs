@@ -24,6 +24,12 @@ namespace RainbowDashBoard.Models.Hardware.Network
             Setup();
 
         }
+
+        internal string[] getInterfaces()
+        {
+            return performanceCounterCategory.GetInstanceNames();
+        }
+
         public NetworkInfoService(string networkInterface)
         {
             this.usedInterface = networkInterface;

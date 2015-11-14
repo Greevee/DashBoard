@@ -10,7 +10,7 @@ using RainbowDashBoard.Models.Hardware.Ram;
 
 namespace RainbowDashBoard.Models
 {
-    class SystemInfoService:ISystemInfoService
+    public class SystemInfoService:ISystemInfoService
     {
         NetworkInfoFactory networkInfoFactory = new NetworkInfoFactory();
         RamInfoFactory ramInfoFactory = new RamInfoFactory();
@@ -39,5 +39,16 @@ namespace RainbowDashBoard.Models
         {
             return ramInfoFactory.GetRamInfo();
         }
+
+        public string[] getNetworkInterfaces()
+        {
+            return networkInfoFactory.getNetworkInterfaces();
+        }
+
+        public void changeNetworkInterface(string networkInterface)
+        {
+            networkInfoFactory.ChangeNetworkInterface(networkInterface);
+        }
+
     }
 }

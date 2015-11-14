@@ -40,5 +40,15 @@ namespace RainbowDashBoard
                 return Assembly.GetExecutingAssembly().GetName().Version.ToString();
             }
         }
+
+        private void product_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Author_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

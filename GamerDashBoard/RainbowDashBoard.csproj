@@ -150,6 +150,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Configuration\ConfigurationController.cs" />
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,8 +163,20 @@
     <Compile Include="Controllers\Hardware\NetworkInfoController.cs" />
     <Compile Include="Controllers\Hardware\RamInfoController.cs" />
     <Compile Include="Controllers\TeamSpeak\TeamSpeakInfoController.cs" />
+    <Compile Include="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Configuration\Configuration.cs" />
+    <Compile Include="Models\Configuration\ConfigurationFactory.cs" />
+    <Compile Include="Models\Configuration\Modul\ClockConfiguration.cs" />
+    <Compile Include="Models\Configuration\Modul\CPUConfiguration.cs" />
+    <Compile Include="Models\Configuration\Modul\MemoryConfiguration.cs" />
     <Compile Include="Models\Configuration\Modul\NetworkConfiguration.cs" />
+    <Compile Include="Models\Configuration\Modul\StyleConfiguration.cs" />
+    <Compile Include="Models\Configuration\Modul\TeamSpeakConfiguration.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfo.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfoFactory.cs" />
     <Compile Include="Models\Hardware\CPU\CPUInfoService.cs" />
@@ -196,14 +209,11 @@
     </Compile>
     <Compile Include="Resolver\UnityResolver.cs" />
     <Compile Include="Server.cs" />
-    <Compile Include="Forms\Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Style\Wallpapers\example.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="app.manifest" />
     <None Include="Style\Images\settings.PNG" />
     <None Include="Resources\TryIcon.ico" />
@@ -215,6 +225,9 @@
     </Content>
     <None Include="Resources\test.png" />
     <None Include="Resources\vocaloid-hatsune-miku-1920x1080.jpg" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\miku_right.jpg" />
+    <None Include="Resources\micu_icon2.ico" />
     <Content Include="Scripts\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -281,12 +294,12 @@
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

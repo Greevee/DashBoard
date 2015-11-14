@@ -15,17 +15,27 @@ namespace RainbowDashBoard
     public class Server
     {
 
-        SystemInfoService systemInfoService = new SystemInfoService();
-        TeamSpeakInfoService teamspeakInfoService = new TeamSpeakInfoService();
-        ConfigurationService settingsService = new ConfigurationService();
+        public SystemInfoService systemInfoService;
+        public TeamSpeakInfoService teamspeakInfoService;
+        public ConfigurationService settingsService;
+        Configuration serverConfig;
 
         public Configuration getConfiguration()
         {
-            return settingsService.getConfig();
+            return serverConfig;
         }
 
         public void startServer()
         {
+
+            settingsService = new ConfigurationService();
+            serverConfig = settingsService.getConfig();
+            //TODO disable deactivated modules
+
+            systemInfoService = new SystemInfoService();
+            teamspeakInfoService = new TeamSpeakInfoService();
+           
+
 
             var fileSystem = new PhysicalFileSystem(".");
             var options = new FileServerOptions

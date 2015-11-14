@@ -93,6 +93,16 @@ namespace RainbowDashBoard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap miku_right {
+            get {
+                object obj = ResourceManager.GetObject("miku_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap miku_wallpaper {
             get {
                 object obj = ResourceManager.GetObject("miku_wallpaper", resourceCulture);

@@ -22,5 +22,10 @@ namespace RainbowDashBoard.Models.Hardware.Network
         {
             networkService = new NetworkInfoService(InterfaceName);
         }
+
+        public string[] getNetworkInterfaces() {
+            return networkService.getInterfaces();
+
+            }
     }
 }
