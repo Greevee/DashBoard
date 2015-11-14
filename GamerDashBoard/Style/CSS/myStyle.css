@@ -176,7 +176,7 @@ html *
 /* General Settings*/
 .d_container{
 
-    background: rgba(54, 25, 25, .5);
+    background: rgba(54, 25, 25, .8);
     border-radius: 15px;
     border: 3px solid aqua;
     padding: 10px; 

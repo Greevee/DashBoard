@@ -1,4 +1,5 @@
-﻿var sessionData = {};
+﻿var config = {};
+var sessionData = {};
 var hardware_data = [];
 var teamspeak_data = {};
 var memoryBar = {};
@@ -7,6 +8,7 @@ var cpuBars = {};
 var refresh_ms_hardware = 2000;
 var refresh_ms_date = 1000;
 var refresh_ms_teamspeak = 250;
+var refresh_ms_config = 1000;
 
 var max_ts_clients = 4;
 
@@ -18,6 +20,24 @@ $(document).ready(function () {
 });
 
 function setup() {
+
+    //config
+    jQuery.ajax({
+        type: "GET",
+        url: "http://" + window.location.host + "/api/configuration?cachebust=" + new Date().getTime(),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (incconfig, status, jqXHR) {
+            config = incconfig;
+            exeConfig();
+            window.setInterval(getConfig, refresh_ms_config);
+        },
+        error: function (jqXHR, status) {
+            //TODOErrorhandling!
+        }
+    });
+
+
     sessionData.prevTSData = {};
     //date
 
@@ -45,8 +65,57 @@ function setup() {
 
     //start TS3 service
     window.setInterval(getTeamSpeakInfo, refresh_ms_teamspeak);
+}
 
+function getConfig() {
+    jQuery.ajax({
+        type: "GET",
+        url: "http://" + window.location.host + "/api/configuration?cachebust=" + new Date().getTime(),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (incconfig, status, jqXHR) {
+            if (JSON.stringify(incconfig) == JSON.stringify(config)) {
+                //do nmothing... or?
+                i++;
+            } else {
+                config = incconfig;
+                exeConfig();
+            }
+        },
+        error: function (jqXHR, status) {
+            //TODOErrorhandling!
+        }
+    });
+}
 
+function exeConfig(){
+    if (config.networkConfig.enabled===false) {
+        $("#d_network_container").hide();
+    } else {
+        $("#d_network_container").show();
+    }
+    if (config.clockConfig.enabled === false) {
+        $("#d_date_container").hide();
+    } else {
+        $("#d_date_container").show();
+    }
+    if (config.cpuConfig.enabled === false) {
+        $("#d_cpu_container").hide();
+    } else {
+        $("#d_cpu_container").show();
+    }
+    if (config.memoryConfig.enabled === false) {
+        $("#d_memory_container").hide();
+    } else {
+        $("#d_memory_container").show();
+    }
+    if (config.tsconfig.enabled === false) {
+        $("#d_teamspeak_container").hide();
+    } else {
+        $("#d_teamspeak_container").show();
+    }
+
+    $('body').css("background-image", "url(../Style/Wallpapers/" + config.styleconig.wallpaper);
 }
 
 function getTeamSpeakInfo() {
@@ -91,15 +160,15 @@ function refreshTeamSpeak() {
         sessionData.prevTSData = {};
         jQuery('#d_teamspeak_user_container').html('');
         //hide TS3
-        $("#d_teamspeak_container").hide();
+        $("#d_teamspeak_content").hide();
     } else if (teamspeak_data.status == "Disconnected") {
 
         sessionData.prevTSData = {};
         jQuery('#d_teamspeak_user_container').html('');
         //hide TS3
-        $("#d_teamspeak_container").hide();
+        $("#d_teamspeak_content").hide();
     } else if (teamspeak_data.status == "Connected") {
-        $("#d_teamspeak_container").show();
+        $("#d_teamspeak_content").show();
         var i = 0;
         var userContainer = $("#d_teamspeak_user_container");
 
