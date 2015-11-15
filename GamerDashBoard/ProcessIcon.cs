@@ -41,8 +41,8 @@ namespace GamerDashBoard
 			// Handle mouse button clicks.
 			if (e.Button == MouseButtons.Left)
 			{
-
-			}
+                System.Diagnostics.Process.Start("http://localhost:13337");
+            }
 		}
 	}
 }
