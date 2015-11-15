@@ -96,6 +96,9 @@ function refreshColors() {
     $(".d_timer_icon").css("stroke", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
     $(".d_inner_bar").css("background-color", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
     $(".d_teamspeak_icon").css("stroke", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+
+    $(".d_container").css("background", "rgba(" + config.styleconig.b_color_r + "," + config.styleconig.b_color_g + "," + config.styleconig.b_color_b + "," + config.styleconig.b_opacity + ")")
+    
 }
 
 function exeConfig(){

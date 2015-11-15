@@ -47,11 +47,17 @@ namespace GamerDashBoard.Forms
             {
                 style_wallpapers.Items.Add(s);
             }
+
             style_wallpapers.SelectedIndex = style_wallpapers.FindString(config.styleconig.wallpaper);
             style_Preview.Image = Image.FromFile("Style/Wallpapers/"+ config.styleconig.wallpaper);
 
             Color color = Color.FromArgb(config.styleconig.color_r, config.styleconig.color_g, config.styleconig.color_b);
             style_color.BackColor = color;
+
+            Color bcolor = Color.FromArgb(config.styleconig.b_color_r, config.styleconig.b_color_g, config.styleconig.b_color_b);
+            style_back_color.BackColor = bcolor;
+
+            style_opacity.Value = (int)(config.styleconig.b_opacity * 100);
 
 
 
@@ -116,6 +122,10 @@ namespace GamerDashBoard.Forms
                 // Set form background to the selected color.
                 color = colorDiag.Color;
             }
+            else
+            {
+                return;
+            }
             style_color.BackColor = color;
 
             config.styleconig.color_r = color.R;
@@ -127,5 +137,36 @@ namespace GamerDashBoard.Forms
 
         }
 
+        private void ChangeBackColorButton_Click(object sender, EventArgs e)
+        {
+            Color color = new Color();
+
+            ColorDialog colorDiag = new ColorDialog();
+            DialogResult result = colorDiag.ShowDialog();
+            // See if user pressed ok.
+            if (result == DialogResult.OK)
+            {
+                // Set form background to the selected color.
+                color = colorDiag.Color;
+            }
+            else
+            {
+                return;
+            }
+            style_back_color.BackColor = color;
+
+            config.styleconig.b_color_r = color.R;
+            config.styleconig.b_color_g = color.G;
+            config.styleconig.b_color_b = color.B;
+            server.settingsService.save();
+
+
+        }
+
+        private void style_opacity_Scroll(object sender, EventArgs e)
+        {
+            config.styleconig.b_opacity = Math.Round(((double)style_opacity.Value / 100),2);
+            server.settingsService.save();
+        }
     }
 }
