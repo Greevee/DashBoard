@@ -125,7 +125,7 @@ function exeConfig(){
         $("#d_teamspeak_container").show();
     }
   
-    $('body').css("background-image", "url(../Style/Wallpapers/" + config.styleconig.wallpaper);
+    $('body').css("background-image", "url(../Style/Wallpapers/" + config.styleconig.wallpaper+")");
 
 
     refreshColors();

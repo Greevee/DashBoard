@@ -218,7 +218,7 @@ namespace RainbowDashBoard.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RainbowDashBoard.Properties.Resources.miku_right;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(581, 346);
+            this.ClientSize = new System.Drawing.Size(612, 346);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
