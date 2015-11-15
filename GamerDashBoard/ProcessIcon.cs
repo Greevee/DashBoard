@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using GamerDashBoard.Properties;
+using GamerDashBoard.Forms;
+
 
 namespace GamerDashBoard
 {
@@ -23,7 +25,7 @@ namespace GamerDashBoard
 		{
 			// Put the icon in the system tray and allow it react to mouse clicks.			
 			ni.MouseClick += new MouseEventHandler(ni_MouseClick);
-			ni.Icon = Resources.favicon;
+            ni.Icon = Resources.favicon;
 			ni.Text = "GamerDashBoard";
 			ni.Visible = true;
 
@@ -41,7 +43,8 @@ namespace GamerDashBoard
 			// Handle mouse button clicks.
 			if (e.Button == MouseButtons.Left)
 			{
-                System.Diagnostics.Process.Start("http://localhost:13337");
+                new Instructions().ShowDialog();
+
             }
 		}
 	}
