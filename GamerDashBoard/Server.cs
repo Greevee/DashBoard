@@ -5,12 +5,12 @@ using Owin;
 using System;
 using System.Net.Http;
 using System.Web.Http;
-using RainbowDashBoard.Resolver;
-using RainbowDashBoard.Models;
+using GamerDashBoard.Resolver;
+using GamerDashBoard.Models;
 using Microsoft.Practices.Unity;
-using RainbowDashBoard.Models.Configuration;
+using GamerDashBoard.Models.Configuration;
 
-namespace RainbowDashBoard
+namespace GamerDashBoard
 {
     public class Server
     {

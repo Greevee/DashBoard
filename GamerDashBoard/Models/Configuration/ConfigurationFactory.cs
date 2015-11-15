@@ -1,11 +1,11 @@
-﻿using RainbowDashBoard.Models.Configuration.Modul;
+﻿using GamerDashBoard.Models.Configuration.Modul;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Configuration
+namespace GamerDashBoard.Models.Configuration
 {
     class ConfigurationFactory
     {

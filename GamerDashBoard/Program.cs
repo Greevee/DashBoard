@@ -1,8 +1,8 @@
-﻿using RainbowDashBoard;
+﻿using GamerDashBoard;
 using System;
 using System.Windows.Forms;
 
-namespace RainbowDashBoard
+namespace GamerDashBoard
 {
     class Program
     {

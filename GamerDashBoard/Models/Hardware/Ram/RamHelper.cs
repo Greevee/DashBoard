@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Hardware.Ram
+namespace GamerDashBoard.Models.Hardware.Ram
 {
     class RamHelper
     {

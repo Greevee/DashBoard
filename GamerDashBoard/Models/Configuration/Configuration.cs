@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Configuration
+namespace GamerDashBoard.Models.Configuration
 {
     public class Configuration
     {

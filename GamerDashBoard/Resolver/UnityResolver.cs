@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 
-namespace RainbowDashBoard.Resolver
+namespace GamerDashBoard.Resolver
 {
     /// <summary>
     /// This resolver allows creating constructors of controllers with parameters!

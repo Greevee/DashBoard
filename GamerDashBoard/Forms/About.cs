@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RainbowDashBoard
+namespace GamerDashBoard
 {
     public partial class About : Form
     {

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RainbowDashBoard.Models.Configuration;
+using GamerDashBoard.Models.Configuration;
 using System.IO;
 
-namespace RainbowDashBoard.Forms
+namespace GamerDashBoard.Forms
 {
     public partial class Settings : Form
     {

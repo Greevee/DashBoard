@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
-using RainbowDashBoard.Properties;
-using System.Drawing;
-using RainbowDashBoard.Forms;
+using GamerDashBoard.Forms;
+using GamerDashBoard.Properties;
 
-namespace RainbowDashBoard
+
+namespace GamerDashBoard
 {
 
-	class ContextMenus
+    class ContextMenus
 	{
 
         bool isAboutLoaded = false;

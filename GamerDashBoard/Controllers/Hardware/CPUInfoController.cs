@@ -1,5 +1,5 @@
-﻿using RainbowDashBoard.Models;
-using RainbowDashBoard.Models.Hardware.CPU;
+﻿using GamerDashBoard.Models;
+using GamerDashBoard.Models.Hardware.CPU;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace RainbowDashBoard.Controllers.Hardware
+namespace GamerDashBoard.Controllers.Hardware
 {
     public class CPUInfoController : ApiController
     {

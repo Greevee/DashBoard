@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
-using RainbowDashBoard.Models;
-using RainbowDashBoard.Models.Hardware;
+using GamerDashBoard.Models;
+using GamerDashBoard.Models.Hardware;
 
-namespace RainbowDashBoard.Controllers.Hardware
+namespace GamerDashBoard.Controllers.Hardware
 {
     public class HardwareInfoController : ApiController
     {

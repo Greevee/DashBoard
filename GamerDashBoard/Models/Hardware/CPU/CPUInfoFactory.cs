@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Hardware.CPU
+namespace GamerDashBoard.Models.Hardware.CPU
 {
     class CPUInfoFactory
     {

@@ -1,6 +1,6 @@
-﻿using RainbowDashBoard.Models.Configuration;
+﻿using GamerDashBoard.Models.Configuration;
 
-namespace RainbowDashBoard.Forms
+namespace GamerDashBoard.Forms
 {
     partial class Settings
     {
@@ -216,7 +216,7 @@ namespace RainbowDashBoard.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::RainbowDashBoard.Properties.Resources.miku_right;
+            this.BackgroundImage = global::GamerDashBoard.Properties.Resources.miku_right;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(612, 346);
             this.Controls.Add(this.groupBox2);

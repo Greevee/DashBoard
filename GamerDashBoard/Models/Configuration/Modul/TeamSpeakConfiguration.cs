@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Configuration.Modul
+namespace GamerDashBoard.Models.Configuration.Modul
 {
     public class TeamSpeakConfiguration
     {

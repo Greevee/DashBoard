@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TS3Connection;
 
-namespace RainbowDashBoard.Models.TeamSpeak
+namespace GamerDashBoard.Models.TeamSpeak
 {
     public class TeamSpeakInfoFactory
     {

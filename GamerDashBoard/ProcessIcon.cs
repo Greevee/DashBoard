@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using RainbowDashBoard.Properties;
+using GamerDashBoard.Properties;
 
-namespace RainbowDashBoard
+namespace GamerDashBoard
 {
 
 	class SysTrayApp : IDisposable
@@ -24,7 +24,7 @@ namespace RainbowDashBoard
 			// Put the icon in the system tray and allow it react to mouse clicks.			
 			ni.MouseClick += new MouseEventHandler(ni_MouseClick);
 			ni.Icon = Resources.favicon;
-			ni.Text = "RainbowDashBoard";
+			ni.Text = "GamerDashBoard";
 			ni.Visible = true;
 
 			ni.ContextMenuStrip = new ContextMenus(server).Create();

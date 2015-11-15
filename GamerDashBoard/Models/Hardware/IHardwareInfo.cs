@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainbowDashBoard.Models.Hardware
+namespace GamerDashBoard.Models.Hardware
 {
     public class IHardwareInfo
     {

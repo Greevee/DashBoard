@@ -1,15 +1,15 @@
-﻿using RainbowDashBoard.Models;
-using RainbowDashBoard.Models.Hardware.Ram;
-using RainbowDashBoard.Models.TeamSpeak;
+﻿using GamerDashBoard.Models;
+using GamerDashBoard.Models.Hardware.Ram;
+using GamerDashBoard.Models.TeamSpeak;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using RainbowDashBoard.Models.Configuration;
+using GamerDashBoard.Models.Configuration;
 
-namespace RainbowDashBoard.Controllers.Configuration
+namespace GamerDashBoard.Controllers.Configuration
 {
     public class ConfigurationController : ApiController
     {

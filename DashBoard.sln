@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS3Connection", "TS3Connection\TS3Connection.csproj", "{23530C46-9D06-4348-993A-447789A40377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RainbowDashBoard", "GamerDashBoard\RainbowDashBoard.csproj", "{55D85EBB-2816-4F49-81D5-6A4A48394552}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerDashBoard", "GamerDashBoard\GamerDashBoard.csproj", "{55D85EBB-2816-4F49-81D5-6A4A48394552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

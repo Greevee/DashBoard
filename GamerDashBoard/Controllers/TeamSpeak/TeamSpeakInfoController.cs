@@ -1,6 +1,6 @@
-﻿using RainbowDashBoard.Models;
-using RainbowDashBoard.Models.Hardware.Ram;
-using RainbowDashBoard.Models.TeamSpeak;
+﻿using GamerDashBoard.Models;
+using GamerDashBoard.Models.Hardware.Ram;
+using GamerDashBoard.Models.TeamSpeak;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TS3Connection;
 
-namespace RainbowDashBoard.Controllers.TeamSpeak
+namespace GamerDashBoard.Controllers.TeamSpeak
 {
     public class TeamSpeakInfoController : ApiController
     {
