@@ -76,7 +76,7 @@ function getConfig() {
         success: function (incconfig, status, jqXHR) {
             if (JSON.stringify(incconfig) == JSON.stringify(config)) {
                 //do nmothing... or?
-                i++;
+                refreshColors();
             } else {
                 config = incconfig;
                 exeConfig();
@@ -86,6 +86,16 @@ function getConfig() {
             //TODOErrorhandling!
         }
     });
+}
+
+function refreshColors() {
+    //TODO clean this mess up
+    $(".d_colorable_border").css("border", "3px solid rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+    $(".d_colorable_color").css("color", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+    $(".d_value").css("color", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+    $(".d_timer_icon").css("stroke", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+    $(".d_inner_bar").css("background-color", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
+    $(".d_teamspeak_icon").css("stroke", "rgb(" + config.styleconig.color_r + "," + config.styleconig.color_g + "," + config.styleconig.color_b + ")")
 }
 
 function exeConfig(){
@@ -114,8 +124,13 @@ function exeConfig(){
     } else {
         $("#d_teamspeak_container").show();
     }
-
+  
     $('body').css("background-image", "url(../Style/Wallpapers/" + config.styleconig.wallpaper);
+
+
+    refreshColors();
+    
+    
 }
 
 function getTeamSpeakInfo() {

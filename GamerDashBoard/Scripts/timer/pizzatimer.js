@@ -3,7 +3,6 @@
     var items = {};
     this.alertTime = alertTime;
     this.icon = $('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="d_timer_icon"><circle cx="50" cy="50" r="40" /><line x1="50" y1="50" x2="50" y2="15"/></svg>');
-
     this.icon.click(function () {
         if (sessionData.timerIsRunning === true) {
             $(this).css("animation", "");
