@@ -211,11 +211,14 @@
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Style\Images\about.png" />
+    <Content Include="Style\Images\exit.PNG" />
+    <Content Include="Style\Images\miku_wallpaper.png" />
+    <Content Include="Style\Images\settings.PNG" />
     <Content Include="Style\Wallpapers\example.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="app.manifest" />
-    <None Include="Style\Images\settings.PNG" />
     <None Include="Resources\TryIcon.ico" />
     <Content Include="Config\Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -244,11 +247,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Style\Icons\favicon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Style\Images\about.png" />
-    <None Include="Style\Images\exit.PNG" />
-    <Content Include="Style\Images\miku_wallpaper.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />
@@ -300,6 +298,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
