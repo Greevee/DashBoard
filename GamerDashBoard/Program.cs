@@ -18,6 +18,7 @@ namespace GamerDashBoard
 
             GDBLogger.logger.Info("Starting GamerDashBoard Server");
 
+            
             Server gdbServer = new Server();
             gdbServer.startServer();
 

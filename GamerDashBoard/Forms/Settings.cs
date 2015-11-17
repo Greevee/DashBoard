@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GamerDashBoard.Models.Configuration;
 using System.IO;
+using GamerDashBoard.Util;
+using System.Reflection;
 
 namespace GamerDashBoard.Forms
 {
@@ -16,6 +18,8 @@ namespace GamerDashBoard.Forms
     {
         Server server;
         Configuration config;
+        FirewallHelper fwh = FirewallHelper.Instance;
+        int port = 13337;
 
         string wallpaperpath = @"Style/Wallpapers";
 
@@ -33,7 +37,8 @@ namespace GamerDashBoard.Forms
             module_clock_enable.Checked = config.clockConfig.enabled;
 
 
-            foreach (string networkInterface in server.systemInfoService.getNetworkInterfaces()){
+            foreach (string networkInterface in server.systemInfoService.getNetworkInterfaces())
+            {
                 networkDropdown.Items.Add(networkInterface);
             }
             if (config.networkConfig.interfaceName == "")
@@ -49,7 +54,7 @@ namespace GamerDashBoard.Forms
             }
 
             style_wallpapers.SelectedIndex = style_wallpapers.FindString(config.styleconig.wallpaper);
-            style_Preview.Image = Image.FromFile("Style/Wallpapers/"+ config.styleconig.wallpaper);
+            style_Preview.Image = Image.FromFile("Style/Wallpapers/" + config.styleconig.wallpaper);
 
             Color color = Color.FromArgb(config.styleconig.color_r, config.styleconig.color_g, config.styleconig.color_b);
             style_color.BackColor = color;
@@ -59,8 +64,25 @@ namespace GamerDashBoard.Forms
 
             style_opacity.Value = (int)(config.styleconig.b_opacity * 100);
 
-
-
+            if (!fwh.IsFirewallEnabled)
+            {
+                fw_addRule.Enabled = false;
+                fw_removeRule.Enabled = false;
+            }
+            else
+            {
+                if (fwh.HasAuthorization(System.Reflection.Assembly.GetEntryAssembly().Location))
+                {
+                    fw_addRule.Enabled = false;
+                    fw_removeRule.Enabled = true;
+                }
+                else
+                {
+                    fw_addRule.Enabled = true;
+                    fw_removeRule.Enabled = false;
+                }
+            }
+            
         }
 
         private void networkDropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,6 +189,56 @@ namespace GamerDashBoard.Forms
         {
             config.styleconig.b_opacity = Math.Round(((double)style_opacity.Value / 100),2);
             server.settingsService.save();
+        }
+
+        private void fw_addRule_Click(object sender, EventArgs e)
+        {
+
+            if (fwh.IsFirewallEnabled)
+            {
+                if (fwh.IsPortOpen(port))
+                {
+                    GDBLogger.logger.Info("Firewall Entry already exists - do nothing");
+
+
+                }
+                else
+                {
+                    fwh.OpenPort(port, getAssemblyProduct);
+                }
+
+                fw_addRule.Enabled = false;
+                fw_removeRule.Enabled = true;
+            }
+        }
+
+        private void fw_removeRule_Click(object sender, EventArgs e)
+        {
+            if (fwh.IsFirewallEnabled)
+            {
+                if (fwh.IsPortOpen(port))
+                {
+                    GDBLogger.logger.Info("Firewall Entry already exists - remove it");
+                    fwh.ClosePort(port);
+
+                }
+
+                fw_addRule.Enabled = true;
+                fw_removeRule.Enabled = false;
+            }
+        }
+
+        private string getAssemblyProduct
+        {
+            get
+            {
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    return "";
+                }
+                return ((AssemblyProductAttribute)attributes[0]).Product;
+            }
         }
     }
 }

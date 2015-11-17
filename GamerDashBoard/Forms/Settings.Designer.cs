@@ -39,6 +39,11 @@ namespace GamerDashBoard.Forms
             this.module_clock_enable = new System.Windows.Forms.CheckBox();
             this.module_network_enable = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.style_opacity = new System.Windows.Forms.TrackBar();
+            this.ChangeBackColorButton = new System.Windows.Forms.Button();
+            this.style_back_color = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.style_color = new System.Windows.Forms.PictureBox();
             this.ChangeColorButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,17 +51,16 @@ namespace GamerDashBoard.Forms
             this.style_Preview = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.style_wallpapers = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.style_back_color = new System.Windows.Forms.PictureBox();
-            this.ChangeBackColorButton = new System.Windows.Forms.Button();
-            this.style_opacity = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.fw_addRule = new System.Windows.Forms.Button();
+            this.fw_removeRule = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.style_opacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.style_back_color)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.style_color)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.style_Preview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.style_back_color)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.style_opacity)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -161,9 +165,55 @@ namespace GamerDashBoard.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Style";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 225);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Opacity";
+            // 
+            // style_opacity
+            // 
+            this.style_opacity.LargeChange = 10;
+            this.style_opacity.Location = new System.Drawing.Point(97, 225);
+            this.style_opacity.Maximum = 100;
+            this.style_opacity.Name = "style_opacity";
+            this.style_opacity.Size = new System.Drawing.Size(227, 45);
+            this.style_opacity.TabIndex = 13;
+            this.style_opacity.Value = 80;
+            this.style_opacity.Scroll += new System.EventHandler(this.style_opacity_Scroll);
+            // 
+            // ChangeBackColorButton
+            // 
+            this.ChangeBackColorButton.Location = new System.Drawing.Point(253, 196);
+            this.ChangeBackColorButton.Name = "ChangeBackColorButton";
+            this.ChangeBackColorButton.Size = new System.Drawing.Size(71, 23);
+            this.ChangeBackColorButton.TabIndex = 12;
+            this.ChangeBackColorButton.Text = "Change";
+            this.ChangeBackColorButton.UseVisualStyleBackColor = true;
+            this.ChangeBackColorButton.Click += new System.EventHandler(this.ChangeBackColorButton_Click);
+            // 
+            // style_back_color
+            // 
+            this.style_back_color.Location = new System.Drawing.Point(97, 198);
+            this.style_back_color.Name = "style_back_color";
+            this.style_back_color.Size = new System.Drawing.Size(150, 21);
+            this.style_back_color.TabIndex = 11;
+            this.style_back_color.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "BackColor";
+            // 
             // style_color
             // 
-            this.style_color.Cursor = System.Windows.Forms.Cursors.Default;
             this.style_color.Location = new System.Drawing.Point(97, 171);
             this.style_color.Name = "style_color";
             this.style_color.Size = new System.Drawing.Size(150, 21);
@@ -172,12 +222,13 @@ namespace GamerDashBoard.Forms
             // 
             // ChangeColorButton
             // 
+            this.ChangeColorButton.BackColor = System.Drawing.Color.Transparent;
             this.ChangeColorButton.Location = new System.Drawing.Point(253, 171);
             this.ChangeColorButton.Name = "ChangeColorButton";
             this.ChangeColorButton.Size = new System.Drawing.Size(71, 23);
             this.ChangeColorButton.TabIndex = 8;
             this.ChangeColorButton.Text = "Change";
-            this.ChangeColorButton.UseVisualStyleBackColor = true;
+            this.ChangeColorButton.UseVisualStyleBackColor = false;
             this.ChangeColorButton.Click += new System.EventHandler(this.ChangeColorButton_Click);
             // 
             // label3
@@ -225,53 +276,37 @@ namespace GamerDashBoard.Forms
             this.style_wallpapers.TabIndex = 0;
             this.style_wallpapers.SelectedIndexChanged += new System.EventHandler(this.style_wallpapers_SelectedIndexChanged);
             // 
-            // label4
+            // groupBox3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 198);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "BackColor";
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.fw_removeRule);
+            this.groupBox3.Controls.Add(this.fw_addRule);
+            this.groupBox3.Location = new System.Drawing.Point(348, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(155, 89);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "FirewallSettings";
             // 
-            // style_back_color
+            // fw_addRule
             // 
-            this.style_back_color.Cursor = System.Windows.Forms.Cursors.Default;
-            this.style_back_color.Location = new System.Drawing.Point(97, 198);
-            this.style_back_color.Name = "style_back_color";
-            this.style_back_color.Size = new System.Drawing.Size(150, 21);
-            this.style_back_color.TabIndex = 11;
-            this.style_back_color.TabStop = false;
+            this.fw_addRule.Location = new System.Drawing.Point(7, 20);
+            this.fw_addRule.Name = "fw_addRule";
+            this.fw_addRule.Size = new System.Drawing.Size(141, 23);
+            this.fw_addRule.TabIndex = 0;
+            this.fw_addRule.Text = "Add Firewall Entry";
+            this.fw_addRule.UseVisualStyleBackColor = true;
+            this.fw_addRule.Click += new System.EventHandler(this.fw_addRule_Click);
             // 
-            // ChangeBackColorButton
+            // fw_removeRule
             // 
-            this.ChangeBackColorButton.Location = new System.Drawing.Point(253, 196);
-            this.ChangeBackColorButton.Name = "ChangeBackColorButton";
-            this.ChangeBackColorButton.Size = new System.Drawing.Size(71, 23);
-            this.ChangeBackColorButton.TabIndex = 12;
-            this.ChangeBackColorButton.Text = "Change";
-            this.ChangeBackColorButton.UseVisualStyleBackColor = true;
-            this.ChangeBackColorButton.Click += new System.EventHandler(this.ChangeBackColorButton_Click);
-            // 
-            // style_opacity
-            // 
-            this.style_opacity.LargeChange = 10;
-            this.style_opacity.Location = new System.Drawing.Point(97, 225);
-            this.style_opacity.Maximum = 100;
-            this.style_opacity.Name = "style_opacity";
-            this.style_opacity.Size = new System.Drawing.Size(227, 45);
-            this.style_opacity.TabIndex = 13;
-            this.style_opacity.Value = 80;
-            this.style_opacity.Scroll += new System.EventHandler(this.style_opacity_Scroll);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 225);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Opacity";
+            this.fw_removeRule.Location = new System.Drawing.Point(6, 49);
+            this.fw_removeRule.Name = "fw_removeRule";
+            this.fw_removeRule.Size = new System.Drawing.Size(142, 23);
+            this.fw_removeRule.TabIndex = 1;
+            this.fw_removeRule.Text = "Remove Firewall Entry";
+            this.fw_removeRule.UseVisualStyleBackColor = true;
+            this.fw_removeRule.Click += new System.EventHandler(this.fw_removeRule_Click);
             // 
             // Settings
             // 
@@ -279,7 +314,8 @@ namespace GamerDashBoard.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(791, 439);
+            this.ClientSize = new System.Drawing.Size(779, 453);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
@@ -289,10 +325,11 @@ namespace GamerDashBoard.Forms
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.style_opacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.style_back_color)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.style_color)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.style_Preview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.style_back_color)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.style_opacity)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -319,5 +356,8 @@ namespace GamerDashBoard.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar style_opacity;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button fw_removeRule;
+        private System.Windows.Forms.Button fw_addRule;
     }
 }
