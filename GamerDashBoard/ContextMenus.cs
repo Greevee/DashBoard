@@ -33,12 +33,7 @@ namespace GamerDashBoard
             item.Image = Resources.settings;
             menu.Items.Add(item);
 
-            // About.
-            item = new ToolStripMenuItem();
-			item.Text = "About";
-			item.Click += new EventHandler(About_Click);
-			item.Image = Resources.about;
-			menu.Items.Add(item);
+
 
 			// Separator.
 			sep = new ToolStripSeparator();
@@ -64,15 +59,6 @@ namespace GamerDashBoard
             }
         }
 
-        void About_Click(object sender, EventArgs e)
-		{
-			if (!isAboutLoaded)
-			{
-				isAboutLoaded = true;
-				new About().ShowDialog();
-				isAboutLoaded = false;
-			}
-		}
 
 		void Exit_Click(object sender, EventArgs e)
 		{

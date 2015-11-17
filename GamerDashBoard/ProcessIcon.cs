@@ -43,7 +43,7 @@ namespace GamerDashBoard
 			// Handle mouse button clicks.
 			if (e.Button == MouseButtons.Left)
 			{
-                new Instructions().ShowDialog();
+                new Instructions(server).ShowDialog();
 
             }
 		}

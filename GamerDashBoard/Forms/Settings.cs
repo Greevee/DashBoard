@@ -71,7 +71,7 @@ namespace GamerDashBoard.Forms
             }
             else
             {
-                if (fwh.HasAuthorization(System.Reflection.Assembly.GetEntryAssembly().Location))
+                if (fwh.IsPortOpen(port)) 
                 {
                     fw_addRule.Enabled = false;
                     fw_removeRule.Enabled = true;
