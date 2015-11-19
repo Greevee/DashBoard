@@ -7,11 +7,12 @@
     background-size: cover; 
 }
 
-html *
-{
+html {
+	height: 100%;
+}
+
+html * {
    font-family: Calibri !important;
-
-
 }
 
 /* Container */
@@ -72,7 +73,7 @@ html *
 }
 
 .d_time.d_value {
-    font-size: 6.5vw;
+    font-size: 6vw;
     float: right;
 }
 
