@@ -7,11 +7,12 @@
     background-size: cover; 
 }
 
-html *
-{
+html {
+	height: 100%;
+}
+
+html * {
    font-family: Calibri !important;
-
-
 }
 
 /* Container */
@@ -72,7 +73,7 @@ html *
 }
 
 .d_time.d_value {
-    font-size: 6.5vw;
+    font-size: 6vw;
     float: right;
 }
 
@@ -161,10 +162,10 @@ html *
 
 .d_innerbar_value{
     color: rgba(54, 25, 25, 1);
-    display: inline-block;
+    display: block;
     font-size: 3.5vw;
     font-weight: bold;
-    margin-left: 20px;
+    text-align: center;
 }
 
 .d_cpu_bar {
