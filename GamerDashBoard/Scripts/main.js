@@ -201,7 +201,7 @@ function refreshTeamSpeak() {
         if (JSON.stringify(sessionData.prevTSData.myChannel) == JSON.stringify(teamspeak_data.myChannel)) {
 
         } else {
-            $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name + " (" + teamspeak_data.myChannel.numberOfClients + ")");
+            $("#d_teamspeak_channel").text(teamspeak_data.myChannel.name + " (" + (Number(teamspeak_data.myChannel.numberOfClients)+1)+  ")");
             if (teamspeak_data.myChannel.numberOfClients > max_ts_clients) {
 
                 var speakers = getClients(teamspeak_data.myChannel, true);

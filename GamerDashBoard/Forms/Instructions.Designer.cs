@@ -36,18 +36,20 @@
             this.product = new System.Windows.Forms.Label();
             this.Author = new System.Windows.Forms.Label();
             this.version = new System.Windows.Forms.Label();
+            this.preview = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.preview);
             this.groupBox2.Controls.Add(this.ipBox);
             this.groupBox2.Controls.Add(this.settingsButton);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 126);
+            this.groupBox2.Size = new System.Drawing.Size(449, 167);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Instructions";
@@ -66,11 +68,9 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 19);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(437, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(437, 136);
             this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "1. Open Settings:\n -Select your network device! \n- Add a firewall entry if availa" +
-    "ble\n\n2. Now you can access the app with the following url:\n- use your smartphone" +
-    " for that! \n";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // ipBox
             // 
@@ -115,6 +115,16 @@
             this.version.TabIndex = 4;
             this.version.Text = "label1";
             // 
+            // preview
+            // 
+            this.preview.Location = new System.Drawing.Point(327, 100);
+            this.preview.Name = "preview";
+            this.preview.Size = new System.Drawing.Size(102, 23);
+            this.preview.TabIndex = 4;
+            this.preview.Text = "Open Browser";
+            this.preview.UseVisualStyleBackColor = true;
+            this.preview.Click += new System.EventHandler(this.preview_Click);
+            // 
             // Instructions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +153,6 @@
         private System.Windows.Forms.Label product;
         private System.Windows.Forms.Label Author;
         private System.Windows.Forms.Label version;
+        private System.Windows.Forms.Button preview;
     }
 }

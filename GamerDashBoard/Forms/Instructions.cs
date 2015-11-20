@@ -78,5 +78,10 @@ namespace GamerDashBoard.Forms
 
             return IP4Address;
         }
+
+        private void preview_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(ipBox.Text);
+        }
     }
 }

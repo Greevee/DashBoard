@@ -20,11 +20,20 @@ namespace GamerDashBoard.Models.TeamSpeak
 
         public TeamSpeakInfo GetTeamSpeakInfo()
         {
+            try { 
             TeamSpeakInfo tsinfo = new TeamSpeakInfo();
             tsinfo.status = ts3.state.ToString();
             tsinfo.myClient = GetClientInfo(ts3.myClient);
             tsinfo.myChannel = GetChannelInfo(ts3.myChannel);
             return tsinfo;
+            }
+            catch(Exception e)
+            {
+                TeamSpeakInfo tsinfo = new TeamSpeakInfo();
+                tsinfo.status = ts3.state.ToString();
+                return tsinfo;
+            }
+            
         }
 
         public TeamSpeakInfo GetTeamSpeakStatus()
@@ -51,6 +60,7 @@ namespace GamerDashBoard.Models.TeamSpeak
 
         private TeamSpeak.TeamSpeakClientInfo GetClientInfo(TS3Connection.objects.Client ts3Client)
         {
+
             TeamSpeakClientInfo clientInfo = new TeamSpeakClientInfo();
             clientInfo.nickname = ts3Client.nickname;
             clientInfo.id = ts3Client.id;
