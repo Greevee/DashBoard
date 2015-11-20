@@ -28,11 +28,24 @@ namespace GamerDashBoard
             ni.Icon = Resources.favicon;
 			ni.Text = "GamerDashBoard";
 			ni.Visible = true;
+            ni.BalloonTipTitle = "GamerDashBoardStarted";
+            ni.BalloonTipText = "Click on the icon to get instructions";
+            ni.BalloonTipClicked += new EventHandler(notifyIcon_BalloonTipClicked);
 
-			ni.ContextMenuStrip = new ContextMenus(server).Create();
+            ni.ShowBalloonTip(5);
+
+            ni.ContextMenuStrip = new ContextMenus(server).Create();
 		}
 
-		public void Dispose()
+        private void notifyIcon_BalloonTipClicked(object sender, EventArgs e)
+        {
+           
+                new Instructions(server).ShowDialog();
+
+
+        }
+
+        public void Dispose()
 		{
 			// When the application closes, this will remove the icon from the system tray immediately.
 			ni.Dispose();

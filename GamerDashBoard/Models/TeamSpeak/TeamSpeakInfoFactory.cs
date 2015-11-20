@@ -10,7 +10,6 @@ namespace GamerDashBoard.Models.TeamSpeak
 {
     public class TeamSpeakInfoFactory
     {
-        private Thread t;
         private TSConnection ts3;
 
 

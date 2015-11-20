@@ -29,12 +29,9 @@ namespace GamerDashBoard
             using (SysTrayApp pi = new SysTrayApp(gdbServer))
             {
                 pi.Display();
-
                 // Make sure the application runs!
                 Application.Run();
             }
-
-
         }
     }
 }

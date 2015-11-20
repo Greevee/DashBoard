@@ -68,9 +68,9 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(437, 96);
             this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "1. Open Settings:\n -Select you network device! \n- Add a firewall entry if availab" +
-    "le\n\n2. Now you can access the app with the following url:\n- use your smartphone " +
-    "for that! \n";
+            this.richTextBox1.Text = "1. Open Settings:\n -Select your network device! \n- Add a firewall entry if availa" +
+    "ble\n\n2. Now you can access the app with the following url:\n- use your smartphone" +
+    " for that! \n";
             // 
             // ipBox
             // 
