@@ -1,134 +1,163 @@
-# DashBoard
-
-ALPHA Preview
-![Alt text](GamerDashBoard/alpha_preview.png)
-
-
+# GamerDashBoard
 ##Introduction
-This is a Net.ASP webpage which allows monitoring of a local PC. It displays information about the user's PC hardware on a wi-fi-enabled smartphone. A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose.
+This is a Net.ASP webpage which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It displays the information on a wi-fi-enabled smartphone or any other newer device with a browser, that has javascript enabled. The Colors and the background can be customized.
 
-Planned modules:
-	- Hardware
-	- Teamspeak 3
+A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose!
+
+Displayed Information:
+ - CPU usage
+ - Memory usage
+ - Network usage
+ - Clock and Date
+ - Timer function
+ - Teamspeak 3 (current Channel, number of users, status of oneself and others, speaking persons)
 	
 If you like it and want to support the project, feel free to give a small donation! : ) <br>
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
 
+##Downloads
+<a href="https://onedrive.live.com/?authkey=%21ADVNpSSPtswXk-8&cid=96CF0FDF088011A8&group=0&id=96CF0FDF088011A8%2146723&parId=96CF0FDF088011A8%2146722&action=locate" target="_blank">Version 1.5.4.0</a>
+
+####Requirements
+- .Net Framework 4.5
+- Administrator previleges
+
+####How to Start
+ - Just unzip the file, copy the files to desired location and launch the GamerDashBoard.exe
+ - click on the systray item to see further instrcutions
+
+
+##Screenshots
+Miku Wallpaper with Aqua Colors
+![Alt text](GitHub/preview_aqua.PNG)
+
+Hellsing Wallpaper with dark Colors
+![Alt text](GitHub/preview_dark.PNG)
 
 ##Current available APIs
 There are some APIs that can be used independently from the frontend.
-Apis that work for now:
 
-- api/hardwareinfo/
-- api/raminfo/
-- api/networkinfo/
-- api/cpuinfo
-
-###Example:
-http://localhost:13337/api/hardwareinfo
-
-will deliver
+####api/hardwareinfo/
 ```
 {
     "networkInfo": {
-        "kbitIn": 0,
-        "kbitOut": 1.10915112
+        "kbitIn": 627.0155,
+        "kbitOut": 11.4816256
     },
     "ramInfo": {
-        "available": 9944,
+        "available": 8311,
         "max": 16321.375
     },
     "cpuInfo": {
         "cpuLoadMap": {
-            "0,6": 8.005339,
-            "_Total": 7.66567,
-            "0,4": 4.6487875,
-            "0,5": 12.46698,
-            "0,2": 24.13788,
-            "0,3": 5.92857,
-            "0,1": 0.3285299,
-            "0,0": 11.1387882,
-            "0,7": 4.85397
+            "0,6": 24.6437016,
+            "_Total": 16.7516537,
+            "0,4": 10.3887644,
+            "0,5": 8.352145,
+            "0,2": 40.93805,
+            "0,3": 16.6077633,
+            "0,1": 6.317236,
+            "0,0": 16.3911686,
+            "0,7": 10.2734489
         },
         "numberCores": 8
     }
 }
 ```
-http://localhost:13337/api/raminfo/
-will deliver
+####api/raminfo/
 ```
 {
-    "available": 9948,
+    "available": 8261,
     "max": 16321.375
 }
 ```
-
-http://localhost:13337/api/teamspeakinfo
-will deliver
+####api/networkinfo/
 ```
 {
+    "kbitIn": 988.23175,
+    "kbitOut": 14.1787233
+}
+```
+####api/cpuinfo
+```
+{
+    "cpuLoadMap": {
+        "0,6": 16.5853539,
+        "_Total": 14.2393208,
+        "0,4": 16.5853539,
+        "0,5": 8.24389,
+        "0,2": 29.0975513,
+        "0,3": 10.2093821,
+        "0,1": 8.243853,
+        "0,0": 16.5853214,
+        "0,7": 8.12113
+    },
+    "numberCores": 8
+}
+```
+####api/teamspeakinfo
+```
+{
+    "status": "Connected",
     "myChannel": {
-        "id": "16",
+        "id": "101",
         "name": "Stammtisch",
+        "numberOfClients": 2,
         "clients": {
-            "2": {
-                "id": "2",
+            "16": {
+                "id": "16",
                 "nickname": "Scratch",
-                "isTalking": false,
+                "isTalking": true,
                 "client_status": "normal"
             },
-            "5": {
-                "id": "5",
-                "nickname": "britnex",
+            "19": {
+                "id": "19",
+                "nickname": "Regar\\sder\\sJägar",
                 "isTalking": false,
                 "client_status": "normal"
             }
         }
     },
     "myClient": {
-        "id": "13",
+        "id": "18",
         "nickname": "Greeve",
         "isTalking": false,
         "client_status": "normal"
     }
 }
 ```
-
-##Installation
-There is no automatic installer yet, it's on the ToDo List!
-
-###Requirements
-- .Net Framework 4.5
-- Administrator previleges
-
-###Installation Process
-
-- Run Visual Studio as Admin -> Load project -> Run GamerDashBoard
-- Access http://localhost:1337/DashBoard.html
-
-A detailed description will follow later.
-
-##Progress
-
-###Done
-* Apis: 
-  * CPU 100%
-  * Memory 100%
-  * Network 90%
-  * Teamspeak 100*
-* Frontend
-  * CPU 100%
-  * Memory 100%
-  * Network 100%
-  * Teamspeak 30*
-
-###In progress
-* Settings Screen 0%
-  * Change Wallpaper 0%
-  * Change Color Schema 0%
-  * Change TS3 Display Settings 0%
-* Standalone Installer 10%
-
+####api/configuration
+```
+{
+    "networkConfig": {
+        "enabled": true,
+        "interfaceName": "Realtek PCIe GBE Family Controller"
+    },
+    "clockConfig": {
+        "enabled": true,
+        "alarmSeconds": 900
+    },
+    "cpuConfig": {
+        "enabled": true
+    },
+    "memoryConfig": {
+        "enabled": true
+    },
+    "tsconfig": {
+        "enabled": true
+    },
+    "styleconig": {
+        "color_r": 0,
+        "color_g": 255,
+        "color_b": 255,
+        "b_color_r": 0,
+        "b_color_g": 0,
+        "b_color_b": 0,
+        "b_opacity": 0.76,
+        "wallpaper": "example.png"
+    }
+}
+```
 ##Credits
 
 Special thanks to:
@@ -137,6 +166,5 @@ Special thanks to:
 - Wulf 
 - Sebbi 
 - Denyo 
-- UmCaP Crew
-for helping me getting shit done!!!
-(and Logitech for this awesome Keyboard, that inspired me!)
+- UmCaP Crew for testing
+(and Logitech for this awesome Keyboard, that inspired me! G910 )
