@@ -119,14 +119,17 @@
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>1. Open Settings:
- -Select your network device!  (Important!)
-- Add a firewall entry if available
+ - Select your network device!  (Important!)
+ - Add a firewall entry if available
 
 2. Now you can access the app with the following url:
-- use your smartphone for that! 
-- you can also test it with your PC,but its optimzed for smartphones
+ - use your smartphone for that! 
+ - you can also test it with your PC,but its optimzed for smartphones
 
-</value>
+Additional Information:
+ - You want to change the wallpaper, no problem, copy it into 
+   the folder and select in in the settings!
+ - Something isnt working? Read the Faqing manual </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -37,19 +37,23 @@
             this.Author = new System.Windows.Forms.Label();
             this.version = new System.Windows.Forms.Label();
             this.preview = new System.Windows.Forms.Button();
+            this.b_wallpaper = new System.Windows.Forms.Button();
+            this.b_homepage = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.b_homepage);
+            this.groupBox2.Controls.Add(this.b_wallpaper);
             this.groupBox2.Controls.Add(this.preview);
             this.groupBox2.Controls.Add(this.ipBox);
             this.groupBox2.Controls.Add(this.settingsButton);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 167);
+            this.groupBox2.Size = new System.Drawing.Size(449, 228);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Instructions";
@@ -68,7 +72,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 19);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(437, 136);
+            this.richTextBox1.Size = new System.Drawing.Size(437, 203);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -121,9 +125,29 @@
             this.preview.Name = "preview";
             this.preview.Size = new System.Drawing.Size(102, 23);
             this.preview.TabIndex = 4;
-            this.preview.Text = "Open Browser";
+            this.preview.Text = "Browser Preview";
             this.preview.UseVisualStyleBackColor = true;
             this.preview.Click += new System.EventHandler(this.preview_Click);
+            // 
+            // b_wallpaper
+            // 
+            this.b_wallpaper.Location = new System.Drawing.Point(327, 129);
+            this.b_wallpaper.Name = "b_wallpaper";
+            this.b_wallpaper.Size = new System.Drawing.Size(102, 23);
+            this.b_wallpaper.TabIndex = 5;
+            this.b_wallpaper.Text = "Wallpaper Folder";
+            this.b_wallpaper.UseVisualStyleBackColor = true;
+            this.b_wallpaper.Click += new System.EventHandler(this.b_wallpaper_Click);
+            // 
+            // b_homepage
+            // 
+            this.b_homepage.Location = new System.Drawing.Point(327, 158);
+            this.b_homepage.Name = "b_homepage";
+            this.b_homepage.Size = new System.Drawing.Size(102, 23);
+            this.b_homepage.TabIndex = 6;
+            this.b_homepage.Text = "Homepage";
+            this.b_homepage.UseVisualStyleBackColor = true;
+            this.b_homepage.Click += new System.EventHandler(this.b_homepage_Click);
             // 
             // Instructions
             // 
@@ -154,5 +178,7 @@
         private System.Windows.Forms.Label Author;
         private System.Windows.Forms.Label version;
         private System.Windows.Forms.Button preview;
+        private System.Windows.Forms.Button b_homepage;
+        private System.Windows.Forms.Button b_wallpaper;
     }
 }

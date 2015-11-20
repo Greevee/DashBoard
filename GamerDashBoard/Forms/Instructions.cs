@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -82,6 +83,16 @@ namespace GamerDashBoard.Forms
         private void preview_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(ipBox.Text);
+        }
+
+        private void b_wallpaper_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"Style\Wallpapers\");
+        }
+
+        private void b_homepage_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Greevee/DashBoard");
         }
     }
 }
