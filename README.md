@@ -171,7 +171,7 @@ Right-click the systray icon!
 ####Why can't I access the displayed IP with my smartphone?
 The smartphone must be in the same network as the PC that runs this application. Make sure tcp port 13337 is open. This can be done in the settings.
 
-#####Why does my TeamSpeak3 Module look like a mess?
+####Why does my TeamSpeak3 Module look like a mess?
 Refresh the page, that should do the trick, its a bug! I hope that I will will fix it soon.
 
 ####Why do I have no network traffic?
