@@ -1,19 +1,20 @@
 # GamerDashBoard
 ##Introduction
-This is a Net.ASP webpage which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It displays the information on a wi-fi-enabled smartphone or any other newer device with a browser, that has javascript enabled. The Colors and the background can be customized.
-
-A G910 (Logitech) combined with a medium to large sized smartphone screen works great for this purpose!
+This is a Net.ASP webpage which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It displays the information on a wi-fi-enabled smartphone or any other newer device with a browser, that has javascript enabled. The Colors and the background can be customized. Its optimized for 1280x720 resolution!
 
 Displayed Information:
  - CPU usage
  - Memory usage
  - Network usage
  - Clock and Date
- - Timer function
+ - Timer function (Click on the clock)
  - Teamspeak 3 (current Channel, number of users, status of oneself and others, speaking persons)
-	
+
 If you like it and want to support the project, feel free to give a small donation! : ) <br>
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
+
+#####Background
+I started the project because my new keyboard (G910) has no display, in comparison to my old one. It's a replacedment for the awesome <a href="http://www.linkdata.se/software/lcdsirreal/" target="_blank">SirReal</a> plugin. I am also trying to improve my coding skills and get in touch with new frameworks and technologies, cause most of the time I work on backend components, so most of the used technologies were totally new.
 
 ##Downloads
 <a href="https://onedrive.live.com/?authkey=%21ADVNpSSPtswXk-8&cid=96CF0FDF088011A8&group=0&id=96CF0FDF088011A8%2146723&parId=96CF0FDF088011A8%2146722&action=locate" target="_blank">Version 1.5.4.0</a>
@@ -24,7 +25,7 @@ If you like it and want to support the project, feel free to give a small donati
 
 ####How to Start
  - Just unzip the file, copy the files to desired location and launch the GamerDashBoard.exe
- - click on the systray item to see further instrcutions
+ - click on the systray icon to see further instrcutions, everything is explained there
 
 
 ##Screenshots
@@ -158,6 +159,27 @@ There are some APIs that can be used independently from the frontend.
     }
 }
 ```
+##FAQ
+
+####How can i start the programm with my pc / as a service?
+Create a shortcut, add it to C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+If this doesn't work, you can run it also as a service. https://www.google.de/search?q=google.de+run+exe+as+service there are many useful tools.
+
+####How can i enter the Instructions or Settings
+Right-click the systray icon!
+
+####Why can't I access the displayed IP with my Smartphone?
+The Smartphone must be in the same Network as the PC that runs this application. Make sure you opened the port of the pc (tcp 13337), this can be done in the settings.
+
+####Why do I have no network traffic?
+Open the settings menu and chose another network interface, wait 1 seconds. Rinse and repeat, one of the interfaces will deliver traffic! If not, you are most likely offline.
+
+##Planned Features
+- autoselect of network interface
+- Pizza timer alert function
+- touch for ts3 to mute yourself
+- notification service that shows notifications
+
 ##Credits
 
 Special thanks to:
@@ -165,6 +187,7 @@ Special thanks to:
 - Bayne
 - Wulf 
 - Sebbi 
+- Tobi
 - Denyo 
 - UmCaP Crew for testing
 (and Logitech for this awesome Keyboard, that inspired me! G910 )
