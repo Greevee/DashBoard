@@ -1,6 +1,6 @@
 # GamerDashBoard
 ##Introduction
-This is a Net.ASP webpage which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It displays the information on a wi-fi-enabled smartphone or any other newer device with a browser, that has javascript enabled. The Colors and the background can be customized. Its optimized for 1280x720 resolution!
+This is a Net.ASP application which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It provides a little server and allows displaying the information on a wi-fi-enabled smartphone or any other newer device with a browser (if javascript is enabled). The colors and the background can be customized. Its optimized for 1280x720 resolution!
 
 Displayed Information:
  - CPU usage
@@ -175,10 +175,12 @@ The Smartphone must be in the same Network as the PC that runs this application.
 Open the settings menu and chose another network interface, wait 1 seconds. Rinse and repeat, one of the interfaces will deliver traffic! If not, you are most likely offline.
 
 ##Planned Features
-- autoselect of network interface
+- Logging! Much more logging!
+- Autoselect of network interface
 - Pizza timer alert function
-- touch for ts3 to mute yourself
-- notification service that shows notifications
+- Touch for ts3 to mute yourself
+- Notification service that shows notifications
+- and many more thing in the backlog
 
 ##Credits
 
