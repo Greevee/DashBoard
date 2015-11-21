@@ -1,38 +1,38 @@
 # GamerDashBoard
 ##Introduction
-This is a Net.ASP application which allows monitoring of a local PCs hardware and Teamspeak 3 Client. It provides a little server and allows displaying the information on a wi-fi-enabled smartphone or any other newer device with a browser (if javascript is enabled). The colors and the background can be customized. Its optimized for 1280x720 resolution!
+This is a Net.ASP application which allows monitoring of a local PC's hardware and Teamspeak 3 client. It provides a little server and allows displaying the information on a wi-fi-enabled smartphone or any other newer device with a browser (if javascript is enabled). The colors and the background can be customized. Its optimized for 1280x720 resolution!
 
 Displayed Information:
  - CPU usage
  - Memory usage
  - Network usage
- - Clock and Date
- - Timer function (Click on the clock)
- - Teamspeak 3 (current Channel, number of users, status of oneself and others, speaking persons)
+ - Clock and date
+ - Timer function (click on the clock)
+ - Teamspeak 3 (current channel, number of users, status of oneself and others, and speaking persons)
 
 If you like it and want to support the project, feel free to give a small donation! : ) <br>
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
 
 #####Background
-I started the project because my new keyboard (G910) has no display, in comparison to my old one. It's a replacedment for the awesome <a href="http://www.linkdata.se/software/lcdsirreal/" target="_blank">SirReal</a> plugin. I am also trying to improve my coding skills and get in touch with new frameworks and technologies, cause most of the time I work on backend components, so most of the used technologies were totally new.
+I started the project because my new keyboard (G910) has no display, in comparison to my old one. It's a replacement for the awesome <a href="http://www.linkdata.se/software/lcdsirreal/" target="_blank">SirReal</a> plugin. I am also trying to improve my coding skills and get in touch with new frameworks and technologies, because most of the time I work on backend components, so most of the used technologies were totally new for me.
 
 ##Downloads
 <a href="https://onedrive.live.com/?authkey=%21ADVNpSSPtswXk-8&cid=96CF0FDF088011A8&group=0&id=96CF0FDF088011A8%2146723&parId=96CF0FDF088011A8%2146722&action=locate" target="_blank">Version 1.5.4.0</a>
 
 ####Requirements
 - .Net Framework 4.5
-- Administrator previleges
+- Administrator privileges
 
 ####How to Start
  - Just unzip the file, copy the files to desired location and launch the GamerDashBoard.exe
- - click on the systray icon to see further instrcutions, everything is explained there
+ - Click on the systray icon to see further instructions, everything is explained there
 
 
 ##Screenshots
-Miku Wallpaper with Aqua Colors
+Miku wallpaper with aqua colors
 ![Alt text](GitHub/preview_aqua.PNG)
 
-Hellsing Wallpaper with dark Colors
+Hellsing wallpaper with dark colors
 ![Alt text](GitHub/preview_dark.PNG)
 
 ##Current available APIs
@@ -161,26 +161,26 @@ There are some APIs that can be used independently from the frontend.
 ```
 ##FAQ
 
-####How can i start the programm with my pc / as a service?
+####How can I start the program with my pc / as a service?
 Create a shortcut, add it to C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 If this doesn't work, you can run it also as a service. https://www.google.de/search?q=google.de+run+exe+as+service there are many useful tools.
 
-####How can i enter the Instructions or Settings
+####How can I enter the instructions or settings
 Right-click the systray icon!
 
-####Why can't I access the displayed IP with my Smartphone?
-The Smartphone must be in the same Network as the PC that runs this application. Make sure you opened the port of the pc (tcp 13337), this can be done in the settings.
+####Why can't I access the displayed IP with my smartphone?
+The smartphone must be in the same network as the PC that runs this application. Make sure tcp port 13337 is open. This can be done in the settings.
 
 ####Why do I have no network traffic?
-Open the settings menu and chose another network interface, wait 1 seconds. Rinse and repeat, one of the interfaces will deliver traffic! If not, you are most likely offline.
+Open the settings menu and choose another network interface; wait 1 second; rinse and repeat until one of the interfaces will deliver traffic! If not, you are most likely offline.
 
 ##Planned Features
 - Logging! Much more logging!
 - Autoselect of network interface
 - Pizza timer alert function
-- Touch for ts3 to mute yourself
+- Touch Teamspeak 3 to mute yourself
 - Notification service that shows notifications
-- and many more thing in the backlog
+- And many more things in the backlog
 
 ##Credits
 
@@ -191,5 +191,5 @@ Special thanks to:
 - Sebbi 
 - Tobi
 - Denyo 
-- UmCaP Crew for testing
-(and Logitech for this awesome Keyboard, that inspired me! G910 )
+- UmCaP Crew for testing and helping 
+(and Logitech for this awesome Keyboard that inspired me! G910 )
