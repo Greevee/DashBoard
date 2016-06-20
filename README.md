@@ -10,9 +10,6 @@ Displayed Information:
  - Timer function (click on the clock)
  - Teamspeak 3 (current channel, number of users, status of oneself and others, and speaking persons)
 
-If you like it and want to support the project, feel free to give a small donation! : ) <br>
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SVW78SGP7EZAJ)
-
 #####Background
 I started the project because my new keyboard (G910) has no display, in comparison to my old one. It's a replacement for the awesome <a href="http://www.linkdata.se/software/lcdsirreal/" target="_blank">SirReal</a> plugin. I am also trying to improve my coding skills and get in touch with new frameworks and technologies, because most of the time I work on backend components, so most of the used technologies were totally new for me.
 
